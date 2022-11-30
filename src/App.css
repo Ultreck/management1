@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active{
+      /* color: rgb(3, 3, 3)(25, 23, 23); */
+      text-decoration: underline;
+      font-weight: bolder;
+      scale: 1.05;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.loader{
+      background-color: rgb(26, 20, 20);
+     position: fixed;
+     width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      transition: .5s;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.loader::after{
+      content: "";
+      width: 80px;
+      height: 80px;
+      border: 10px solid white;
+      border-top-color: orangered;
+      border-bottom-color: #2cee71;
+      border-left-color: rgb(26, 20, 20);
+      border-right-color: rgb(26, 20, 20);
+      border-radius: 50%;
+      animation: loader .8s linear infinite;
 }
+@keyframes loader {
+      from {
+            transform: rotate(0turn);
+            transition: .5s;
+      }
+      to {
+            transform: rotate(1turn);
+            transition: .5s;
+      }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
