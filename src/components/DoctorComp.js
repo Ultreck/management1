@@ -64,6 +64,7 @@ const DoctorComp = ({profileDataMast}) => {
             });
             // console.log(userArr);
             handleDocProfile();
+            setloader('text')
             setsideNav('hidden')
             setlocalStorageEm(JSON.parse(localStorage.getItem('currentUserEmail')))
       }, [clickedUserEm])

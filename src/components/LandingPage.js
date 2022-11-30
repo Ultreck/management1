@@ -25,10 +25,10 @@ const Dashboard = () => {
                         <p className=" text-white mt-6  font-semibold text-xl">for you to  be able to consult our doctors and to have more accessbilities to our  medical management system, You'll have to register.</p>
                          <div className="text-center mx-auto py-10 bg-neutral-200 rounded shadow-inner shadow-gray-700 drop-shadow-lg mt-20">
                               <button className="text-white hover:scale-105 font-semibold  bg-orange-300 w-2/5 rounded-full py-1 mx-2 shadow-lg shadow-orange-400">
-                                    <a href="/login" className="text">Login</a>
+                              <Link to="/login" className="text w-full">Login</Link>
                               </button>
                               <button className="text-white hover:scale-105 font-semibold  bg-pink-500 w-2/5 rounded-full py-1 mx-2 shadow-lg shadow-pink-400">
-                                    <a href="patientSignUp" className="text">Sign Up</a>
+                                    <Link to="/patientSignUp" className="text w-full">Sign Up</Link>
                               </button>
                         </div>
                  </div>
@@ -64,10 +64,10 @@ const Dashboard = () => {
                         </div>
                         <div className="z-10 text-center mx-auto mt-10 md:hidden pb-10">
                               <button className="z-10 text hover:scale-105 font-semibold bg-orange-300 w-1/3 rounded-full py-1 mx-2 shadow-lg shadow-orange-400">
-                                    <Link to="/login" className="text">Login</Link>
+                                    <Link to="/login"  className="text w-full">Login</Link>
                               </button>
                               <button className="z-10 text-white hover:scale-105 font-semibold bg-pink-500 w-1/3 rounded-full py-1 mx-2 shadow-lg shadow-pink-400">
-                                    <Link to="/patientSignUp">Sign Up</Link>
+                                    <Link to="/patientSignUp" className="text w-full">Sign Up</Link>
                               </button>
                         </div>
                  </div>

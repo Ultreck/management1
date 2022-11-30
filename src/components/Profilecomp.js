@@ -75,7 +75,7 @@ const Profilecomp = ({setprofilePics}) => {
       }
     });
 
-    // Differentiating between Doctors and Patients Profile
+    setloader('text');
    
   }, [])
 

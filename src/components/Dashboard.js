@@ -65,7 +65,7 @@ const Dashboard = ({setprofileDataMast}) => {
                   }
             });
 
-            // setloader('text')
+            setloader('text')
             setsideNav('hidden')
           }, [])
 
@@ -95,7 +95,7 @@ const Dashboard = ({setprofileDataMast}) => {
             querySnapshot.forEach((doc, indx) => {
                   if(doc.data().email === userEmail){
                         setprofileData(doc.data());
-                        setloader('text')
+                        // setloader('text')
                         setprofileDataMast(doc.data());
                   }
             });
@@ -110,7 +110,7 @@ const Dashboard = ({setprofileDataMast}) => {
                         setprofileData(doc.data());
                         setprofileDataMast(doc.data());
                         setemail(userEmail);
-                           setloader('text')
+                        //    setloader('text')
                   }
                 
             });
