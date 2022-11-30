@@ -286,20 +286,20 @@ const Dashboard = ({setprofileDataMast}) => {
                                    docMonp={docMonp} docTuep={docTuep} docWedp={docWedp} docThup={docThup} docFrip={docFrip} docSatp={docSatp} docSunp={docSunp}
                                    />
                               </div>
-                              <div className="text flex md:w-4/5 bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300">
+                              <div className="text flex  md:w-4/5 bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300">
                                    <div className="text w-1/3 border-r-2 md:pl-20 pt-10 px-3">
-                                          <span className="text-center w-full">Total Income</span>
-                                          <div className="text w-20 h-20 rounded-full  ml-4 mt-10 bg-blue-700 "></div>
+                                          <span className="text-center w-full ml-4">Income</span>
+                                          <div className="text w-20 h-20 rounded-full  ml-1 mt-10 bg-blue-700 "></div>
                                           <span className="text w-full flex mt-14 border-b-blue-500 border-b text-2xl font-serif"><FaDollarSign className='mt-2'/>6,000,000</span>
                                    </div>
                                    <div className="text w-1/3 border-r-2 md:pl-20 px-3  pt-10">
-                                          <span className="text-center w-full">Total Outcome</span>
-                                          <div className="text w-20 h-20 rounded-full ml-8 mt-10 bg-red-500 "></div>
+                                          <span className="text-center ml-5 w-full">Outcome</span>
+                                          <div className="text w-20 h-20 rounded-full ml-4 mt-10 bg-red-500 "></div>
                                           <span className="text w-full flex mt-14 border-b-red-500 border-b text-2xl font-serif"><FaDollarSign className='mt-2'/>1,500,000</span>
                                    </div>
                                    <div className="text-center w-1/3  md:pl-20 px-3 pt-10">
                                           <span className="text w-full">Profilt/Month</span>
-                                          <div className="text w-20 h-20 rounded-full mt-10  ml-8 bg-green-600"></div>
+                                          <div className="text w-20 h-20 rounded-full mt-10  ml-5 bg-green-600"></div>
                                           <span className="text w-full flex mt-14 border-b-green-500 border-b text-2xl font-serif"><FaDollarSign className='mt-2'/>500,000</span>
                                    </div>
                               </div>

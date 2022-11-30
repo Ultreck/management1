@@ -268,16 +268,16 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                           <div className="text">
                                 <div className="text w-full border-b">
                                     <span className="text font-bold">Full Name:</span>
-                                    <span className="text pl-20">{surnName}</span>
+                                    <span className="text pl-10">Dr. {surnName}</span>
                                     <span className="text pl-10">{firstName}</span>
                                   </div>
                                 <div className="text w-full border-b my-20">
                                     <span className="text font-bold">Email:</span>
-                                    <span className="text pl-20">{profileData.email}</span>
+                                    <span className="text pl-10">{profileData.email}</span>
                                   </div>
                                 <div className="text w-full border-b my-20">
                                     <span className="text font-bold">Contact:</span>
-                                    <span className="text pl-20">{profileData.contact}</span>
+                                    <span className="text pl-10">{profileData.contact}</span>
                                 </div>
                                 <div className={cardNo}>
                                 </div>
@@ -286,17 +286,17 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                                       profileData.fieldOfSpecialization?
                                       <div className="text w-full border-b">
                                           <span className="text font-bold">Profession:</span>
-                                          <span className="text pl-20">{profileData.fieldOfSpecialization}</span>
+                                          <span className="text pl-10">{profileData.fieldOfSpecialization}</span>
                                       </div>:
                                     <div className="text w-full border-b ">
                                         <span className="text font-bold">Cald No:</span>
-                                        <span className="text pl-20">{profileData.cardNo}</span>
+                                        <span className="text pl-10">{profileData.cardNo}</span>
                                     </div>
                                       }
                                 </div>
                                 <div className="text w-full border-b my-20">
                                     <span className="text font-bold">Bio:</span>
-                                    <span className="text pl-20">{bioText}</span>
+                                    <span className="text pl-10">{bioText}</span>
                                     <FaPen title='Edit Bio' className="text-white rounded-full  absolute right-0 -translate-y-8 cursor-pointer bg-blue-600 w-16 h-6 p-1" onClick={handlebio}></FaPen>
                                 </div>
                           </div>

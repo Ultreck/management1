@@ -164,7 +164,7 @@ const DoctorComp = ({profileDataMast}) => {
       <div className={loader}></div>
     <section className="text right-0 w-full  md:w-4/5 flex fixed md:gap-2 dark:bg-slate-900">
       <div className={tableRowClass}>
-            <div className="text bg-slate-100 dark:bg-slate-600 h-40 px-24 -translate-x-2 shadow-inner shadow-gray-300 fixed  md:px-80">
+            <div className="text bg-slate-100 dark:bg-slate-600 h-40 px-20 -translate-x-5 shadow-inner shadow-gray-300 fixed  md:px-80">
                   <h1 className="text-3xl  text-center my-4 font-mono font-bold px-3">List Of Doctors</h1>
                   <FaBars className='md:hidden absolute right-8 top-7 mt-1 text-2xl dark:text-white' onClick={handleSideNav}/>
                   <h1 className="text-xl  text-center mt-10">Click each row to see full details</h1>
@@ -246,10 +246,10 @@ const DoctorComp = ({profileDataMast}) => {
       </div>
       {/* Each user's profile and display field at Smaller Screen  */}
       <div className={userProfileData1}>
-            <div className="text bg-gray-50 h-screen  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  px-12 py-10 md:hidden">
+            <div className="text bg-gray-100 h-full  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  p-10 md:hidden w-full ">
                               <button className="text animate-bounce absolute right-20 text-3xl top-6 " onClick={handleBackArr}><FaArrowLeft/></button>
-                              <div className="text mb-8 flex">
-                                    <div className="text w-32 h-32 rounded-full bg-slate-600 dark:bg-slate-400">
+                              <div className="text mb-8 flex w-full">
+                                    <div className="text border w-32 h-32 rounded-full bg-slate-600 dark:bg-slate-400">
                                           <img src={profilePics} alt="" className="text  w-32 rounded-full h-32 p-1" />
                                     </div>
                                     <div className="text flex ml-10 mt-12 gap-6">
