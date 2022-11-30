@@ -210,17 +210,17 @@ const SignUp = () => {
                                     <button className='bg-blue-500 w-1/2 py-1 rounded-full mt-6  -translate-y-44 text-white font-semibold ml-24 hover:scale-105 shadow-md shadow-blue-800' >Sign Up</button>
                                     <p className="text-center mx-auto mt-4 mb-3 md:hidden  -translate-y-44">
                                           Are you a doctor? 
-                                          <a href="/docSignUp" className="text-sky-800 underline"> Sign Up</a>
+                                          <Link to="/docSignUp" className="text-sky-800 underline"> Sign Up</Link>
                                     </p>
                               </form>
                               </div>
                               <div className="text  bg-pink-100 w-full lg:w-1/2 hidden md:flex h-auto rounded-tr-lg rounded-br-lg border-l-4 border-l-blue-700">
                                     <img src={formimg} className=' rounded-tr-lg rounded-br-lg ' alt="" />
                                     <button className="text-black bg-white px-10 py-2 rounded-full ml-40 font-bold absolute top-96 hover:scale-110 ease-in-out">
-                                    <a href="/docSignUp" className="flex ">
+                                    <Link to="/docSignUp" className="flex ">
                                           <span className="text"> Sign Up as a Doctor </span>
                                           <FaArrowRight className='mt-1.5 ml-3  animate-spin translate-x-6 ease-in-linear'/>
-                                          </a>
+                                          </Link>
                                     </button>
                         </div>
                   </div>
