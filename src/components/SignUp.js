@@ -142,10 +142,10 @@ const SignUp = () => {
      <div className={loader}></div>
     <main className="text">
       <div className={parentEle}>
-            <div className="w-full mx-auto  bg-sky-200  bg-fixed bg-no-repeat  bg-cover  h-screen overflow-hidden scroll-smooth pr-5 pl-5" style={{backgroundImage:`url(${bgimg1})`}}>
-                  <div className="flex bg-red-100 mx-auto h-5/6 w-full lg:w-3/5 md:h-auto md:my-20  my-10 rounded-lg overflow-hidden">
-                        <div className="text  bg-orange-200 w-full lg:w-1/2 h-full rounded-tl-lg rounded-bl-lg border-r-8 border-r-blue-700">
-                              <form className="text px-8" onSubmit={handleSubmit(formAuth)}>
+            <div className="w-full mx-auto  bg-sky-200  bg-fixed bg-no-repeat overflow-hidden bg-cover  h-screen  scroll-smooth px-3" style={{backgroundImage:`url(${bgimg1})`}}>
+                  <div className="flex  bg-orange-200 mx-auto h-5/6 w-full lg:w-3/5 md:h-5/6 md:my-10   my-20 rounded-lg overflow-auto border-r-8 border-r-blue-700 md:border-r-0">
+                        <div className="text  bg-orange-200 w-full lg:w-1/2 h-screen rounded-tl-lg rounded-bl-lg ">
+                              <form className="text px-8 h-screen " onSubmit={handleSubmit(formAuth)}>
                                     <p className="text-center  py-8 font-mono font-bold text-2xl">For Patients</p>
                                     <div className="text grid gap-5">
                                           <input  type={'text'} {...register("surname", {required: true, minLength:3,  maxLength:20})} placeholder='sur-name' className='border rounded-full py-2 px-4  outline-1 focus:outline-dashed outline-black shadow-inner shadow-gray-500'></input>
@@ -171,7 +171,7 @@ const SignUp = () => {
                                                 {errors.email?.type === "required" && "Pease input correct email format"}
                                           </span>
                                           <input  type={type}  {...register("password", {required: true,  minLength:6,  maxLength:8})} placeholder='password' className='border rounded-full py-2 px-4  outline-1 focus:outline-dashed outline-black  shadow-inner shadow-gray-500  -translate-y-16'/>
-                                                <span onClick={handleAuth} className="text lg:-translate-y-28 -translate-y-28 md:h-9 w-10  relative md:left-96 left-80 md:translate-x-20 translate-x-10 md:text-center  z-10"><Icon icon={icon}/></span>
+                                                <span onClick={handleAuth} className="text lg:-translate-y-28 -translate-y-28 md:h-9 w-10  relative md:left-96 left-80 md:translate-x-20 -translate-x-14 md:text-center  z-10"><Icon icon={icon}/></span>
                                                 <span className='-translate-y-32'>
                                                       {errors.password?.type === "required" && "Pease fill up this field"}
                                                       {errors.password?.type === "minLength" && "Pease input atleast 6 digits"}
@@ -203,7 +203,7 @@ const SignUp = () => {
                                                       <option value="Others" className="text  bg-slate-700 text-white">Others</option>
                                                 </select>
                                     </div>
-                                    <span className="text -translate-y-28">
+                                    <span className="text -translate-y-44">
                                           {errors.gender?.type === "required" && "Pease choose gender"}
                                     </span>
                                     </div>
@@ -214,9 +214,9 @@ const SignUp = () => {
                                     </p>
                               </form>
                               </div>
-                              <div className="text  bg-pink-100 w-full lg:w-1/2 hidden md:flex h-auto rounded-tr-lg rounded-br-lg border-l-4 border-l-blue-700">
+                              <div className="text  bg-pink-100 w-full lg:w-1/2 hidden md:flex h-screen rounded-tr-lg rounded-br-lg border-l-4 border-l-blue-700">
                                     <img src={formimg} className=' rounded-tr-lg rounded-br-lg ' alt="" />
-                                    <button className="text-black bg-white px-10 py-2 rounded-full ml-40 font-bold absolute top-96 hover:scale-110 ease-in-out">
+                                    <button className="text-black bg-white px-10 py-2 rounded-full ml-40 font-bold absolute top-1/2 hover:scale-110 ease-in-out">
                                     <Link to="/docSignUp" className="flex ">
                                           <span className="text"> Sign Up as a Doctor </span>
                                           <FaArrowRight className='mt-1.5 ml-3  animate-spin translate-x-6 ease-in-linear'/>

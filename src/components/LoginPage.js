@@ -89,12 +89,12 @@ useEffect(() => {
                 </Link>
               </div>
               <div className="text md:w-2/3 w-full px-6 mt-44 rounded-xl lg:w-1/2   mx-auto bg-gray-50 md:h-2/3 h-3/5 dark:bg-slate-700 dark:text-white shadow-inner  pt-10  drop-shadow-xl">
-                  <div className="text-balck dark:text-white px-6 bg-white h-4/5 my-10 w-5/6 md:w-2/3 lg:w-3/5 mx-auto rounded-lg dark:bg-slate-800 shadow-inner shadow-gray-300 py-6 drop-shadow-xl">
-                        <h1 className="text-3xl text-center font-mono font-bold">Sign In Page</h1>
-                       <form  className="text grid grid-cols-1  gap-20 mt-10" onSubmit={handleSubmit(handleLogin)}>
+                  <div className="text-balck dark:text-white px-6 bg-white h-4/5 my-10 w-full md:w-2/3 lg:w-3/5 mx-auto rounded-lg dark:bg-slate-800 shadow-inner shadow-gray-300 py-6 drop-shadow-xl">
+                        <h1 className="text-xl text-center font-mono font-bold">Sign In Page</h1>
+                       <form  className="text grid grid-cols-1  gap-10 mt-10" onSubmit={handleSubmit(handleLogin)}>
                           <input type="email"  {...register("email", {required: true})} id="inpemail" onChange={(e) =>setlogInEmail(e.target.value)} className="text py-3  rounded-full px-6  focus:outline-dotted outline-2 outline-gray-800 bg-gray-100 dark:bg-slate-300 dark:focus:outline-dotted dark:outline-yellow-500 dark:text-black dark:outline-2" placeholder='email' />
                           <input  type={type}  {...register("password", {required: true})}  id="inppassword" onChange={(e) => setlogInPassword(e.target.value)} className="text py-3 rounded-full px-6  focus:outline-dotted outline-2 outline-gray-800 bg-gray-100 dark:bg-slate-300 dark:focus:outline-dotted dark:outline-yellow-500 dark:text-black dark:outline-2" placeholder='password' />
-                          <span onClick={handleAuth} className="text w-20 absolute dark:text-black  py-2 text-center  z-10 right-6 rounded-full translate-y-32"><Icon icon={icon}/></span>
+                          <span onClick={handleAuth} className="text w-20 absolute dark:text-black  py-2 text-center  z-10 right-6 rounded-full translate-y-24"><Icon icon={icon}/></span>
                           <button className="text bg-blue-500 w-1/2 mx-auto py-2 rounded-full text-white font-bold text-lg font-serif hover:scale-105 hover:bg-blue-700  hover:text-xl ">Login</button>
                        </form>
                   </div>

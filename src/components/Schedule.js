@@ -52,25 +52,26 @@ const Schedule = () => {
     <div className={loader}></div>
     <div className=" bg-white dark:bg-slate-900 dark:text-white h-screen w-full  overflow-hidden">
     <div className='w-full  overflow-hidden'>
-    <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-800 md:w-1/2 h-full overflow-hidden w-full absolute md:h-4/5 md:left-1/3 md:mx-auto px-10 md:px-20 py-16 md:mt-28">
+    <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-700 md:w-1/2 h-full overflow-hidden w-full absolute md:h-4/5 md:left-1/3 md:mx-auto px-5 md:px-20 py-16 md:mt-28">
                 <Link className='text md:hidden'>
-                          <FaBars className='absolute right-10 top-8 text-3xl' onClick={handleSideNav}/>
+                          <FaBars className='absolute right-10 top-6 text-3xl' onClick={handleSideNav}/>
                   </Link>
-          <div className="text w-full h-full bg-white  overflow-hidden py-10 md:py-10 px-10">
+          <div className="text w-full h-full bg-white dark:bg-slate-900 overflow-auto py-10 md:py-10 px-5">
               <div className="text md:w-2/3  h-full">
                   <span className="text-blue-500">Health comes first...</span>
-                  <h1 className="text-4xl font-extrabold text-gray-500 mt-10">The Number One Medical Management System In 
+                  <h1 className="text-2xl md:text-4xl font-extrabold text-gray-500 mt-5  dark:text-white">The Number One Medical Management System In 
                   <span className="text-blue-500"> Nigeria</span>.
                   </h1>
-               <img src={img} alt="" className="text w-40 h-40 float-right mt-10 rounded-lg md:hidden ml-4" />
+               <img src={img} alt="" className="text w-32 h-32 float-right mt-16 rounded-lg md:hidden ml-4" />
                   <p className="mt-10 text-xl">
-                              Welcome to <span className="text-  font-mono font-bold">WastroMedics, </span><span className="text-black"> The Medical Management System, </span> a leading health centre, offering a range of medical services like <span className="">Chiropractic, Physical Therrapy, Dentist </span>and <span className="">Eye Exam.</span>
+                              Welcome to <span className="text-  font-mono font-bold">WastroMedics, </span><br /> 
+                              a leading health centre, offering a range of medical services like <span className="">Chiropractic, Physical Therrapy, Dentist </span>and <span className="">Eye Exam.</span>
                         </p>
                         <p className=" text-xl mt-4">We specialising  in solving  with different issues and our ability to provide medical services in over 20 languages, we are sure you will find the right doctor to help you. We work with individuals, couples and families, supporting adults, children and adolescents.</p>
                         <p className=" text-xl mt-4 mb-10 font-bold">Thank You!</p>
               </div>
             {/* <span className="text font-bold text-xl absolute top-40 hidden right-40 md:flex">C.E.O</span> */}
-            <span className="text font-bold text-xl absolute md:top-2/3 md:right-32 top-80 z-30 translate-y-5 right-24 md:translate-y-8">A.O. Emmanuel</span>
+            {/* <span className="text font-bold text-xl absolute md:top-2/3 md:right-32 top-80 z-30 translate-y-14 right-16 md:translate-y-8 dark:text-white">A.O. Emmanuel</span> */}
             <div className="text w-80 h-96 hidden md:flex drop-shadow-lg rounded-xl absolute z-10 right-5 top-52 bg-white  overflow-hidden">
                 <img src={img} alt="" className="text w-full h-full" />
           </div>
@@ -80,7 +81,7 @@ const Schedule = () => {
 </div>
 {/* Nav Bar for Options and smaller screen mobiles */}
 <div className={sideNav}>
-                    <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-900 dark:text-white text-lg dark:border-r-gray-500 absolute right-0 top-28 md:hidden">
+                    <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-800 dark:text-white text-lg dark:border-r-gray-500 absolute right-0 top-28 md:hidden">
                     <h1 className="z-auto text-center mt-10 text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-400 to-blue-600 font-mono">WastroMedics</h1>
                     <div className="w-full">
                               <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto">

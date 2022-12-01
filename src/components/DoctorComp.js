@@ -47,7 +47,7 @@ const DoctorComp = ({profileDataMast}) => {
       const [email, setemail] = useState();
       const [status, setstatus] = useState('Available');
       const [sideNav, setsideNav] = useState();
-      const [tableRowClass, settableRowClass] = useState("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto  md:ml-72 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300  px-10 ");
+      const [tableRowClass, settableRowClass] = useState("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto  md:ml-72 dark:bg-slate-900  dark:text-white shadow-inner shadow-gray-300  px-10 ");
       const [clickedUserFir, setclickedUserFir] = useState();
       const [clickedUserCon, setclickedUserCon] = useState();
       const [clickedUserPro, setclickedUserPro] = useState();
@@ -164,19 +164,19 @@ const DoctorComp = ({profileDataMast}) => {
       <div className={loader}></div>
     <section className="text right-0 w-full  md:w-4/5 flex fixed md:gap-2 dark:bg-slate-900">
       <div className={tableRowClass}>
-            <div className="text bg-slate-100 dark:bg-slate-600 h-40 px-20 -translate-x-5 shadow-inner shadow-gray-300 fixed  md:px-80">
-                  <h1 className="text-3xl  text-center my-4 font-mono font-bold px-3">List Of Doctors</h1>
+            <div className="text bg-slate-100 dark:bg-slate-800 h-40 px-20 -translate-x-4 shadow-inner shadow-gray-300 fixed  md:px-80">
+                  <h1 className="text-2xl  text-center my-6 font-mono font-bold px-3">Doctors</h1>
                   <FaBars className='md:hidden absolute right-8 top-7 mt-1 text-2xl dark:text-white' onClick={handleSideNav}/>
-                  <h1 className="text-xl  text-center mt-10">Click each row to see full details</h1>
+                  <h1 className="text-md  text-center mt-10">Click each row to see full details</h1>
             </div>
             {/* Table */}
             <div className="text overflow-x-auto relative mt-48 pb-20">        
             <table className="md:text-xl border-collapse table-auto border border-slate-200 w-full">
             <thead className='text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
                   <tr>
-                        <th scope="col" class="border py-3 px-6 bg-slate-100 dark:bg-slate-600 dark:text-white">S/n</th>
+                        <th scope="col" class="border py-3 px-3 bg-slate-100 dark:bg-slate-600 dark:text-white">S/n</th>
                         <th scope="col" class="border py-3 px-6 bg-slate-100  dark:bg-slate-600 dark:text-white">Name</th>
-                        <th  scope="col" class="border py-3 px-6 bg-slate-100  dark:bg-slate-600 dark:text-white">Proffession</th>
+                        <th  scope="col" class="border py-3 px-3 bg-slate-100  dark:bg-slate-600 dark:text-white">Proffession</th>
                         {/* <th  scope="col" class="border py-3 px-6 bg-slate-200">Contact</th> */}
 
                   </tr>
@@ -185,7 +185,7 @@ const DoctorComp = ({profileDataMast}) => {
                         <>
                         <tbody className=''>
                               <tr key={ind} className='cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-500' onTouchEnd={handleDocProfile} onClick={handleDocProfile} onTouchStart={() =>setclickedUsers(val._document.data.value.mapValue.fields)} onClickCapture={() =>setclickedUsers(val._document.data.value.mapValue.fields)}>
-                                    <td  class="border py-3 px-5">{ind+1}</td>
+                                    <td  class="border py-3 pl-5">{ind+1}</td>
                                     <td  class="border py-3 px-2">Dr. {val._document.data.value.mapValue.fields.firstname.stringValue}</td>
                                     <td class="border py-3 px-2">{val._document.data.value.mapValue.fields.fieldOfSpecialization.stringValue}</td>
                                     {/* <td class="border py-3 px-2">{val._document.data.value.mapValue.fields.contact.stringValue}</td> */}
@@ -249,44 +249,44 @@ const DoctorComp = ({profileDataMast}) => {
             <div className="text bg-gray-100 h-full  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  p-10 md:hidden w-full ">
                               <button className="text animate-bounce absolute right-20 text-3xl top-6 " onClick={handleBackArr}><FaArrowLeft/></button>
                               <div className="text mb-8 flex w-full">
-                                    <div className="text border w-32 h-32 rounded-full bg-slate-600 dark:bg-slate-400">
-                                          <img src={profilePics} alt="" className="text  w-32 rounded-full h-32 p-1" />
+                                    <div className="text border w-28 h-28 rounded-full bg-slate-600 dark:bg-slate-400">
+                                          <img src={profilePics} alt="" className="text  w-28 rounded-full h-28 p-1" />
                                     </div>
-                                    <div className="text flex ml-10 mt-12 gap-6">
-                                        <div className="text h-10 pt-2 bg-blue-100 px-5 dark:bg-slate-500">Status:</div>
-                                        <div className="text-center pt-2 bg-blue-100 w-40 h-10 text-xl font-mono font-extrabold dark:bg-slate-500">{status}</div>
+                                    <div className="text flex ml-5 mt-12 gap-3">
+                                        <div className="text h-10 pt-2 bg-blue-100 px-3 dark:bg-slate-500">Status:</div>
+                                        <div className="text-center pt-2 bg-blue-100  h-10 text-xl font-mono font-extrabold dark:bg-slate-500 px-3">{status}</div>
                                     </div>
                               </div>
                               <div className="text">
                                     <div className="text w-full border-b">
                                           <span className="text font-bold">Full Name:</span>
-                                          <span className="text pl-20">Dr. {clickedUserSur}</span>
+                                          <span className="text pl-6">Dr. {clickedUserSur}</span>
                                           <span className="text pl-4">{clickedUserFir}</span>
                                     </div>
                                     <div className="text w-full border-b my-20">
                                           <span className="text font-bold">Email:</span>
-                                          <span className="text pl-20">{clickedUserEm}</span>
+                                          <span className="text pl-8">{clickedUserEm}</span>
                                     </div>
                                     <div className="text w-full border-b my-20">
                                           <span className="text font-bold">Contact:</span>
-                                          <span className="text pl-20">{clickedUserCon}</span>
+                                          <span className="text pl-8">{clickedUserCon}</span>
                                     </div>
                                     <div className='text'>
                                           <div className="text w-full border-b">
                                                 <span className="text font-bold">Profession:</span>
-                                                <span className="text pl-20">{clickedUserPro}</span>
+                                                <span className="text pl-8">{clickedUserPro}</span>
                                           </div>
                                     </div>
                               </div>
                               {/* User's profile handler */}
                               <div className={doctCont} >
                                     <h1 className="text-xl text-center mt-16 font-bold">Contact The Doctor</h1>
-                                    <select name="" id="" className="text dark:bg-slate-300 dark:text-black bg-slate-100 outline-0 py-2 my-4 px-6">
+                                    <select name="" id="" className="w-full dark:bg-slate-300 dark:text-black bg-slate-200 outline-0 py-2 my-4 px-6">
                                           <option value="Choose" className="text" disabled>Choose</option>
                                           <option value="CheckUp" className="text">CheckUp</option>
                                           <option value="Treatment" className="text">Treatment</option>
                                     </select>
-                                    <input type="date" className="text dark:bg-slate-300 dark:text-black  bg-slate-100 outline-0 py-1 my-4 px-6" />
+                                    <input type="date" className="w-full dark:bg-slate-300 dark:text-black  bg-slate-200 outline-0 py-2 my-4 px-6" />
                               <button onClick={handleSchedule} className="text-white font-bold text-lg hover:bg-blue-700 bg-blue-500 py-1 mt-">Schedule</button>
                         </div>
                         <div className={marque}>
@@ -301,7 +301,7 @@ const DoctorComp = ({profileDataMast}) => {
 
 {/* Optional sidenav */}
     <div className={sideNav}>
-                          <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-900 dark:text-white text-lg dark:border-r-gray-500 right-0 top-16 fixed md:hidden">
+                          <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-700 dark:border-t-2 dark:text-white text-lg dark:border-r-gray-500 right-0 top-16 fixed md:hidden">
                           <h1 className="z-auto text-center mt-10 text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-400 to-blue-600 font-mono">WastroMedics</h1>
                           <div className="w-full">
                                     <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto mt-10">

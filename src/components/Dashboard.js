@@ -280,44 +280,44 @@ const Dashboard = ({setprofileDataMast}) => {
                               </div>
                         </div>
                         <div className="text lg:flex overflow-hidden">
-                              <div className="text md:w-2/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300">
+                              <div className="text md:w-2/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300 pt-20 md:pt-10">
                                    <VBar 
                                    docMon={docMon} docTue={docTue} docWed={docWed} docThu={docThu} docFri={docFri} docSat={docSat} docSun={docSun}
                                    docMonp={docMonp} docTuep={docTuep} docWedp={docWedp} docThup={docThup} docFrip={docFrip} docSatp={docSatp} docSunp={docSunp}
                                    />
                               </div>
                               <div className="text flex  md:w-4/5 bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300">
-                                   <div className="text w-1/3 border-r-2 md:pl-20 pt-10 px-3">
-                                          <span className="text-center w-full ml-4">Income</span>
-                                          <div className="text w-20 h-20 rounded-full  ml-1 mt-10 bg-blue-700 "></div>
-                                          <span className="text w-full flex mt-14 border-b-blue-500 border-b text-2xl font-serif"><FaDollarSign className='mt-2'/>6,000,000</span>
+                                   <div className="text w-1/3 border-r-2 md:px-20 pt-10">
+                                          <div className="text-center w-full">Income</div>
+                                          <div className="text w-20 h-20 rounded-full mt-10 bg-blue-700 "></div>
+                                          <div className="text w-full flex mt-14 border-b-blue-500 border-b mr-4"><FaDollarSign className='mt-2'/>6,000,000</div>
                                    </div>
-                                   <div className="text w-1/3 border-r-2 md:pl-20 px-3  pt-10">
-                                          <span className="text-center ml-5 w-full">Outcome</span>
-                                          <div className="text w-20 h-20 rounded-full ml-4 mt-10 bg-red-500 "></div>
-                                          <span className="text w-full flex mt-14 border-b-red-500 border-b text-2xl font-serif"><FaDollarSign className='mt-2'/>1,500,000</span>
+                                   <div className="text w-1/3 border-r-2  md:px-20 px-3  pt-10">
+                                          <div className="text-center w-full">Outcome</div>
+                                          <div className="text w-20 h-20 rounded-full mt-10 bg-red-500 "></div>
+                                          <div className="text w-full flex mt-14 border-b-red-500 border-b"><FaDollarSign className='mt-2'/>1,500,000</div>
                                    </div>
-                                   <div className="text-center w-1/3  md:pl-20 px-3 pt-10">
-                                          <span className="text w-full">Profilt/Month</span>
+                                   <div className=" w-1/3  md:px-16  pt-10">
+                                          <div className="text-center px-1 w-full">Profilt/Month</div>
                                           <div className="text w-20 h-20 rounded-full mt-10  ml-5 bg-green-600"></div>
-                                          <span className="text w-full flex mt-14 border-b-green-500 border-b text-2xl font-serif"><FaDollarSign className='mt-2'/>500,000</span>
+                                          <div className="text w-full flex mt-14 border-b-green-500 border-b  mx-2"><FaDollarSign className='mt-2'/>500,000</div>
                                    </div>
                               </div>
                         </div>
                         <h1 className="text-center  md:w-4/6 font-semibold text-xl dark:text-white translate-y-2">Hospital Survey</h1>
                         <div className="text md:flex overflow-auto">
                               <div className="text md:w-full bg-slate-50 text-center dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-auto flex-wrap shadow-inner drop-shadow-md flex">
-                                         <div className="text grid w-1/2  md:w-1/4 border-r-2">
+                                         <div className="text grid w-1/2  md:w-1/4 border-r-2 border-b-2 md:border-b-0">
                                                 <span className="text my-2 mx-auto text-3xl font-bold "><FaBed/></span>
                                                 <span className="text my-2 font-mono">1,000</span>
                                                 <span className="text my-2 font-mono">Number of bed</span>
                                          </div>
-                                         <div className="text grid w-1/2  md:w-1/4 border-r-2">
+                                         <div className="text grid w-1/2  md:w-1/4 md:border-r-2 border-b-2 md:border-b-0">
                                                 <span className="text my-2 font-mono mx-auto text-3xl font-bold "><FaUserNurse/></span>
                                                 <span className="text my-2 font-mono">100</span>
                                                 <span className="text my-2 font-mono">Daily surgery</span>
                                          </div>
-                                         <div className="text grid w-1/2  md:w-1/4 border-r-2 mt-6">
+                                         <div className="text grid w-1/2  md:w-1/4 border-r-2 pt-6">
                                                  <span className="text my-2 font-mono mx-auto text-3xl font-bold "><FaUserFriends/></span>
                                                 <span className="text my-2 font-mono">150</span>
                                                 <span className="text my-2 font-mono">New Patient</span>

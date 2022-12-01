@@ -228,22 +228,22 @@ window.alert("Sorry Due to some internal error you are unable to log out")
        <div className={loader}></div>
        <div className=' bg-gray-100 lg:ml-96 w-full  md:w-4/5  md:h-screen dark:bg-slate-900  dark:text-white text-lg'>
                  <div className="text w-full md:mx-60 lg:mx-96 md:w-3/5  mx-auto 
-                lg:w-2/5 border h-screen bg-gray-50 dark:bg-slate-700 dark:text-white  border-t-0 fixed ">
-                      <div className="text md:w-3/5 lg:w-2/5 w-full h-60  bg-purple-300 px-10 fixed">
+                lg:w-2/5 border h-screen bg-gray-50 dark:bg-slate-800 dark:text-white  border-t-0 fixed ">
+                      <div className="text md:w-3/5 lg:w-2/5 w-full h-60  bg-slate-400 dark:bg-slate-900 px-10 fixed">
                         <div className={optionBar}>
                           <Link className='text md:hidden'>
-                                <FaBars className='absolute right-10 top-16 text-3xl' onClick={handleSideNav}/>
+                                <FaBars className='absolute right-10 top-16 text-3xl text-white' onClick={handleSideNav}/>
                           </Link>
                         </div>
                       </div>
                       {/* User profile picture */}
-                      <div className="text w-36 h-36 bg-slate-200 border-2 rounded-full z-10 fixed translate-y-40 translate-x-5 p-2 " onDoubleClick={handleWideView}  onTouchStart={handleWideView}>
+                      <div className="text w-36 h-36 bg-slate-200 border rounded-full z-10 fixed translate-y-40 translate-x-5 p-1 dark:bg-slate-800" onDoubleClick={handleWideView}  onTouchStart={handleWideView}>
                         {!downloadUrl? 
                         <img src={img} alt="" className='h-full w-full rounded-full' />:
                         <img src={downloadUrl} alt=" " className='h-full w-full rounded-full' />
                       }
                       </div>
-                      <FaCamera className=' z-20  text-black absolute top-56 left-52 -translate-x-14 cursor-pointer text-xl' title='Upload Profile' onClick={handleProfilePics}></FaCamera>
+                      <FaCamera className=' z-20  text-black absolute dark:text-white top-56 left-52 -translate-x-14 cursor-pointer text-xl' title='Upload Profile' onClick={handleProfilePics}></FaCamera>
                       {/* Picture pop up container */}
                       <div className={picsClass}>
                           <div className="text w-4/5 translate-x-14 lg:translate-x-20 dark:bg-slate-700 h-1/2  bg-gray-100 mt-36 absolute shadow-inner shadow-white drop-shadow-2xl justify-center items-center z-50 lg:p-28 p-16">
@@ -267,17 +267,17 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                       <div className={userProfileData}>
                           <div className="text">
                                 <div className="text w-full border-b">
-                                    <span className="text font-bold">Full Name:</span>
-                                    <span className="text pl-10">Dr. {surnName}</span>
-                                    <span className="text pl-10">{firstName}</span>
+                                    <span className="text font-bold">Name:</span>
+                                    <span className="text pl-7">{surnName}</span>
+                                    <span className="text pl-7">{firstName}</span>
                                   </div>
-                                <div className="text w-full border-b my-20">
+                                <div className="text w-full border-b my-16">
                                     <span className="text font-bold">Email:</span>
-                                    <span className="text pl-10">{profileData.email}</span>
+                                    <span className="text pl-7">{profileData.email}</span>
                                   </div>
-                                <div className="text w-full border-b my-20">
+                                <div className="text w-full border-b my-16">
                                     <span className="text font-bold">Contact:</span>
-                                    <span className="text pl-10">{profileData.contact}</span>
+                                    <span className="text pl-7">{profileData.contact}</span>
                                 </div>
                                 <div className={cardNo}>
                                 </div>
@@ -286,17 +286,17 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                                       profileData.fieldOfSpecialization?
                                       <div className="text w-full border-b">
                                           <span className="text font-bold">Profession:</span>
-                                          <span className="text pl-10">{profileData.fieldOfSpecialization}</span>
+                                          <span className="text pl-7">{profileData.fieldOfSpecialization}</span>
                                       </div>:
                                     <div className="text w-full border-b ">
                                         <span className="text font-bold">Cald No:</span>
-                                        <span className="text pl-10">{profileData.cardNo}</span>
+                                        <span className="text pl-7">{profileData.cardNo}</span>
                                     </div>
                                       }
                                 </div>
                                 <div className="text w-full border-b my-20">
                                     <span className="text font-bold">Bio:</span>
-                                    <span className="text pl-10">{bioText}</span>
+                                    <span className="text pl-7">{bioText}</span>
                                     <FaPen title='Edit Bio' className="text-white rounded-full  absolute right-0 -translate-y-8 cursor-pointer bg-blue-600 w-16 h-6 p-1" onClick={handlebio}></FaPen>
                                 </div>
                           </div>
@@ -305,7 +305,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                       {/* Bio pop up container */}
                       <div className={bioClass}>
                           <div className="text w-4/5 translate-x-16 lg:translate-x-20 dark:bg-slate-700 h-1/2  bg-gray-200 mt-36 absolute shadow-inner shadow-white drop-shadow-2xl justify-center items-center z-50 lg:p-28 p-16">
-                              <input type="text" className="text w-full mt-28 rounded-full py-1 px-6" placeholder='Update Bio...' onChange={(e) =>setbioText(e.target.value)}/>
+                              <input type="text" className="text dark:text-black w-full mt-28 rounded-full py-1 px-6" placeholder='Update Bio...' onChange={(e) =>setbioText(e.target.value)}/>
                               <button onClick={handleSaveBio} className="text-center w-1/2 bg-blue-400 hover:bg-blue-600 hover:text-white my-6 font-bold text-xl py-1 rounded-full lg:translate-x-32 translate-x-16">Save</button>
                               <span className="text-red-500 font-bold absolute right-8 top-8 text-3xl cursor-pointer" title='Close' onClick={handleCancel}>X</span>
                           </div>
@@ -313,7 +313,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
 
                       {/* Nav Bar for Options and smaller screen mobiles */}
                       <div className={sideNav}>
-                          <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-900 dark:text-white text-lg dark:border-r-gray-500 absolute right-0 top-28 md:hidden">
+                          <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-900 dark:text-white text-lg dark:border-r-gray-500 absolute right-0 top-28 md:hidden dark:border-t-2 z-40">
                           <h1 className="z-auto text-center mt-10 text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-400 to-blue-600 font-mono">WastroMedics</h1>
                           <div className="w-full">
                                     <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto">

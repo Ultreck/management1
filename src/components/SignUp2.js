@@ -123,9 +123,9 @@ const SignUp2 = () => {
     <>
      <div className={loader}></div>
       <main className="text">
-            <div className="w-full mx-auto  bg-orange-200  bg-fixed bg-no-repeat  bg-cover  h-screen scroll-smooth px-6 overflow-hidden" style={{backgroundImage:`url(${bgimg1})`}}>
-                        <div className="flex bg-red-100 mx-auto w-full h-4/5 lg:w-3/5 md:h-4/5 md:my-20  my-20 rounded-lg overflow-hidden">
-                              <div className="text   bg-sky-200 w-full lg:w-1/2 h-full rounded-tl-lg rounded-bl-lg border-r-8 border-r-orange-700">
+            <div className="w-full mx-auto  bg-orange-200  bg-fixed bg-no-repeat  bg-cover  h-screen scroll-smooth px-6 overflow-auto" style={{backgroundImage:`url(${bgimg1})`}}>
+                        <div className="flex md:border-r-0 border-r-8 border-r-orange-700  bg-sky-200 mx-auto w-full h-4/5 lg:w-3/5 md:h-4/5 md:my-20  my-20 rounded-lg overflow-auto">
+                              <div className="text   bg-sky-200 w-full lg:w-1/2 h-full rounded-tl-lg rounded-bl-lg ">
                               <form className="text px-8" onSubmit={handleSubmit(formAuth)}>
                                     <p className="text-center  py-8 font-mono font-bold text-2xl">For Doctors</p>
                                     <div className="text grid gap-4">
@@ -177,7 +177,7 @@ const SignUp2 = () => {
                                           {errors.email?.type === "required" && "Pease input correct email format"}
                                     </span>
                                     <input  type={type}  {...register("password", {required: true,  minLength:6,  maxLength:8})} placeholder='password' className='border rounded-full py-2 px-4  -translate-y-16 outline-1 focus:outline-dashed outline-black  shadow-inner shadow-gray-500'/>
-                                          <span onClick={handleAuth} className="text lg:-translate-y-28 -translate-y-28 md:h-9 w-10  relative md:left-96 left-80 lg:translate-x-20 translate-x-10 md:text-center  z-10"><Icon icon={icon}/></span>
+                                          <span onClick={handleAuth} className="text lg:-translate-y-28 -translate-y-28 md:h-9 w-10  relative md:left-96 left-80 lg:translate-x-20 -translate-x-20 md:text-center  z-10"><Icon icon={icon}/></span>
                                                <span className='-translate-y-28'>
                                                 {errors.password?.type === "required" && "Pease fill up this field"}
                                                 {errors.password?.type === "minLength" && "Pease input atleast 6 digits"}
@@ -213,7 +213,7 @@ const SignUp2 = () => {
                                     </p>
                               </form>
                               </div>
-                              <div className="text  bg-pink-200 w-full lg:w-1/2 hidden md:flex h-auto rounded-tr-lg rounded-br-lg border-l-4  border-l-orange-700">
+                              <div className="text  bg-pink-200 w-full lg:w-1/2 hidden md:flex h-screen rounded-tr-lg rounded-br-lg border-l-4  border-l-orange-700">
                                     <img src={formimg} className=' rounded-tr-lg rounded-br-lg ' alt="" />
                                     <button className="text-black bg-gray-100 px-10 py-2 rounded-full ml-40 font-bold absolute top-1/2">
                                     <Link to="/patientSignUp" className="flex ">

@@ -81,7 +81,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
     </div>
     <div className=" bg-white dark:bg-slate-900 dark:text-white h-screen w-full">
           <div className='w-full'>
-          <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-600 md:w-1/2 w-full absolute h-screen md:left-1/3 md:mx-auto px-10 md:px-20 py-20">
+          <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-800 md:w-1/2 w-full absolute h-screen md:left-1/3 md:mx-auto px-10 md:px-20 py-20">
                       <Link className='text md:hidden'>
                                 <FaBars className='absolute right-10 top-8 text-3xl' onClick={handleSideNav}/>
                           </Link>
@@ -126,17 +126,17 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                 </ul>
                 <div className=" text-center">
                       <h1 className="text-xl font-semibold mb-4 md:text-2xl">Enquiries/Question</h1>
-                      <p className="text w-2/3 mx-auto md:text-xl">Now that you know a lot about us, let us know if you have any enquiries or request.</p>
+                      <p className="text w-full mx-auto md:text-xl">Now that you know a lot about us, let us know if you have any enquiries or request.</p>
                       <form className=" mt-4" ref={form} onSubmit={sendEmail}>
                             <div className="text ">
                                   <div className="text flex w-full">
                                               <input type="text" 
-                                              className="text py-2 w-1/2 mx-1 pl-4"  
+                                              className="text py-2 w-1/2 mx-1 pl-4 dark:text-black dark:bg-slate-300"  
                                               placeholder='name'  name="user_name"
                                               value={firstName}
                                               onChange={e => setFirstName(e.target.value)}/>
                                               <input type="text" 
-                                              className="text py-2 w-1/2 mx-1 pl-4" 
+                                              className="text py-2 w-1/2 mx-1 pl-4 dark:text-black dark:bg-slate-300" 
                                               placeholder='email' 
                                               name="user_email"
                                               value={lastName}
@@ -145,7 +145,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                                   <div className="text ">
                                         <textarea textarea name="message"  
                                         id="textarea" rows="5"
-                                        className="text mt-6 w-full  pl-4"  
+                                        className="text mt-6 w-full  pl-4 dark:text-black dark:bg-slate-300"  
                                         placeholder='Message'
                                         value={message}
                                         onChange={e => setMessagel(e.target.value)}></textarea>
