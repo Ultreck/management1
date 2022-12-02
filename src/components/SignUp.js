@@ -143,7 +143,7 @@ const SignUp = () => {
     <main className="text">
       <div className={parentEle}>
             <div className="w-full mx-auto  bg-sky-200  bg-fixed bg-no-repeat overflow-hidden bg-cover  h-screen  scroll-smooth px-3" style={{backgroundImage:`url(${bgimg1})`}}>
-                  <div className="flex  bg-orange-200 mx-auto h-5/6 w-full lg:w-3/5 md:h-5/6 md:my-10   my-20 rounded-lg overflow-auto border-r-8 border-r-blue-700 md:border-r-0">
+                  <div className="flex  bg-orange-200 mx-auto h-full w-full lg:w-3/5 md:h-5/6 md:my-10  rounded-lg overflow-auto border-r-8 border-r-blue-700 md:border-r-0">
                         <div className="text  bg-orange-200 w-full lg:w-1/2 h-screen rounded-tl-lg rounded-bl-lg ">
                               <form className="text px-8 h-screen " onSubmit={handleSubmit(formAuth)}>
                                     <p className="text-center  py-8 font-mono font-bold text-2xl">For Patients</p>
@@ -190,13 +190,13 @@ const SignUp = () => {
                                                       </span>
                               
                                                 <div className="border bg-white rounded-full py-2 px-2  -translate-y-40 outline-1 focus:outline-dashed outline-black shadow-inner shadow-gray-500">
-                                                 <select name="gender" id="cardNo"   {...register(`cardNo`, {required: true})}  className="w-5/6 outline-0 text-gray-500">
+                                                 <select name="gender" id="cardNo"   {...register(`cardNo`, {required: true})}  className="w-5/6 outline-0 text-gray-500 bg-white">
                                                       <option value="" className="text  bg-slate-100 text-gray-200" hidden>Auto Generate Card No</option>
                                                       <option value={autoCardNo} className="text  bg-slate-700 text-white">{autoCardNo}</option>
                                                 </select>
                                     </div>
                                                 <div className="border bg-white rounded-full py-2 px-2  -translate-y-40 outline-1 focus:outline-dashed outline-black shadow-inner shadow-gray-500">
-                                                 <select name="gender" id="gender"  {...register("gender", {required: true})} className="w-5/6 outline-0 text-gray-500">
+                                                 <select name="gender" id="gender"  {...register("gender", {required: true})} className="w-5/6 outline-0 text-gray-500 bg-white">
                                                       <option value="" className="text  bg-slate-100 text-gray-200" hidden>gender</option>
                                                       <option value="Male" className="text  bg-slate-700 text-white">Male</option>
                                                       <option value="Female" className="text  bg-slate-700 text-white">Female</option>

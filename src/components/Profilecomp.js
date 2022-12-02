@@ -44,7 +44,7 @@ const Profilecomp = ({setprofilePics}) => {
   const [profileUpload, setprofileUpload] = useState(null)
   const [sideNav, setsideNav] = useState('flex')
   const [optionBar, setoptionBar] = useState('flex')
-  const [userProfileData, setuserProfileData] = useState('text absolute w-5/6 top-80 mt-10 mx-10 pr-5')
+  const [userProfileData, setuserProfileData] = useState('text absolute w-5/6 md:top-80 top-48 mt-10 mx-10 pr-5')
   const [progress, setprogress] = useState(null)
   const [widePicsView, setwidePicsView] = useState('hidden')
   const [cancleX, setcancleX] = useState("text-red-500 font-bold absolute right-8 top-8 text-3xl cursor-pointer flex")
@@ -229,7 +229,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
        <div className=' bg-gray-100 lg:ml-96 w-full  md:w-4/5  md:h-screen dark:bg-slate-900  dark:text-white text-lg'>
                  <div className="text w-full md:mx-60 lg:mx-96 md:w-3/5  mx-auto 
                 lg:w-2/5 border h-screen bg-gray-50 dark:bg-slate-800 dark:text-white  border-t-0 fixed ">
-                      <div className="text md:w-3/5 lg:w-2/5 w-full h-60  bg-slate-400 dark:bg-slate-900 px-10 fixed">
+                      <div className="text md:w-3/5 lg:w-2/5 w-full h-40 md:h-60 bg-slate-400 dark:bg-slate-900 px-10 fixed">
                         <div className={optionBar}>
                           <Link className='text md:hidden'>
                                 <FaBars className='absolute right-10 top-16 text-3xl text-white' onClick={handleSideNav}/>
@@ -237,13 +237,13 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                         </div>
                       </div>
                       {/* User profile picture */}
-                      <div className="text w-36 h-36 bg-slate-200 border rounded-full z-10 fixed translate-y-40 translate-x-5 p-1 dark:bg-slate-800" onDoubleClick={handleWideView}  onTouchStart={handleWideView}>
+                      <div className="text w-36 h-36 bg-slate-200 border rounded-full z-10 fixed translate-y-20 md:translate-y-40 translate-x-5 p-1 dark:bg-slate-800" onDoubleClick={handleWideView}  onTouchStart={handleWideView}>
                         {!downloadUrl? 
                         <img src={img} alt="" className='h-full w-full rounded-full' />:
                         <img src={downloadUrl} alt=" " className='h-full w-full rounded-full' />
                       }
                       </div>
-                      <FaCamera className=' z-20  text-black absolute dark:text-white top-56 left-52 -translate-x-14 cursor-pointer text-xl' title='Upload Profile' onClick={handleProfilePics}></FaCamera>
+                      <FaCamera className=' z-20  text-black absolute dark:text-white md:top-56 top-36 left-52 -translate-x-14 cursor-pointer text-xl' title='Upload Profile' onClick={handleProfilePics}></FaCamera>
                       {/* Picture pop up container */}
                       <div className={picsClass}>
                           <div className="text w-4/5 translate-x-14 lg:translate-x-20 dark:bg-slate-700 h-1/2  bg-gray-100 mt-36 absolute shadow-inner shadow-white drop-shadow-2xl justify-center items-center z-50 lg:p-28 p-16">
@@ -268,7 +268,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                           <div className="text">
                                 <div className="text w-full border-b">
                                     <span className="text font-bold">Name:</span>
-                                    <span className="text pl-7">{surnName}</span>
+                                    <span className="text pl-7 ">{surnName}</span>
                                     <span className="text pl-7">{firstName}</span>
                                   </div>
                                 <div className="text w-full border-b my-16">
@@ -294,7 +294,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                                     </div>
                                       }
                                 </div>
-                                <div className="text w-full border-b my-20">
+                                <div className="text w-full border-b my-16">
                                     <span className="text font-bold">Bio:</span>
                                     <span className="text pl-7">{bioText}</span>
                                     <FaPen title='Edit Bio' className="text-white rounded-full  absolute right-0 -translate-y-8 cursor-pointer bg-blue-600 w-16 h-6 p-1" onClick={handlebio}></FaPen>
@@ -318,34 +318,34 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                           <div className="w-full">
                                     <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto">
                                         <NavLink to='/dashboard' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaTachometerAlt className="text-lg mr-3  my-8"/>
-                                                <li className=" border-gray-400 text-lg my-6 ">DASHBOARD</li>
+                                                <FaTachometerAlt className="text-sm mr-3  my-8"/>
+                                                <li className=" border-gray-400 text-sm my-6 ">DASHBOARD</li>
                                           </NavLink>
                                         <NavLink to='/profiles' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUserCircle className="text-lg mr-3 my-7 "/>
-                                                <li className="border-gray-400 text-lg my-6">PROFILE</li>
+                                                <FaUserCircle className="text-sm mr-3 my-7 "/>
+                                                <li className="border-gray-400 text-sm my-6">PROFILE</li>
                                         </NavLink>
                                         <NavLink to='/doctors' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUserNurse className="text-lg mr-3 my-7 "/>
-                                                <li className="border-gray-400 text-lg my-6">DOCTORS</li>
+                                                <FaUserNurse className="text-sm mr-3 my-7 "/>
+                                                <li className="border-gray-400 text-sm my-6">DOCTORS</li>
                                         </NavLink>
                                         <NavLink to='/schedules' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaCalendar className="text-lg mr-3 my-7 "/>
-                                                <li className=" border-gray-400 text-lg my-6">ABOUT</li>
+                                                <FaCalendar className="text-sm mr-3 my-7 "/>
+                                                <li className=" border-gray-400 text-sm my-6">ABOUT</li>
                                         </NavLink>
                                     </ul>
-                                    <ul className="text mt-10  w-4/5 mx-auto">
+                                    <ul className="text mt-5  w-4/5 mx-auto">
                                         <NavLink to='/contacts' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaPhoneAlt className="text-lg mr-3 my-7 "/>
-                                                <li className=" border-gray-400 text-lg my-6">CONTACTS</li>
+                                                <FaPhoneAlt className="text-sm mr-3 my-7 "/>
+                                                <li className=" border-gray-400 text-sm my-6">CONTACTS</li>
                                         </NavLink>
                                         {/* <NavLink to='/faq' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUser className="text-lg mr-3 my-8 "/>
-                                                <li className="border-gray-400 text-lg my-6">FAQ</li>
+                                                <FaUser className="text-sm mr-3 my-8 "/>
+                                                <li className="border-gray-400 text-sm my-6">FAQ</li>
                                         </NavLink> */}
                                         <NavLink exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaSignOutAlt className="text-lg mr-3 my-8  text-red-700 ml-4"/>
-                                                <li className="border-gray-400 text-lg my-6 text-red-700" onClick={handleLogOut}>LOGOUT</li>
+                                                <FaSignOutAlt className="text-sm mr-3 my-8  text-red-700 ml-4"/>
+                                                <li className="border-gray-400 text-sm my-6 text-red-700" onClick={handleLogOut}>LOGOUT</li>
                                         </NavLink>
                                     </ul>
                               </div>

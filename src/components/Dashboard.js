@@ -337,8 +337,8 @@ const Dashboard = ({setprofileDataMast}) => {
                           <div className="w-full">
                           <div className="md:hidden flex absolute bg-gray-300 rounded-full -translate-y-16 border border-gray-500 dark:bg-slate-500 mx-auto w-full">
                           {!profilePics? 
-                        <img src={img} alt="" className='textl z-20 border-2 border-blue-600 rounded-full  w-16 h-16' />:
-                        <img src={profilePics} alt="" className="textl z-20 border-2 border-blue-600 rounded-full  w-16 h-16" />
+                        <img src={img} alt="" className='textl z-20 border-2 border-blue-600 rounded-full  w-14 h-14' />:
+                        <img src={profilePics} alt="" className="textl z-20 border-2 border-blue-600 rounded-full  w-14 h-14" />
                        
                       }
                               <div className="text flex mx-auto mt-4">
@@ -348,34 +348,34 @@ const Dashboard = ({setprofileDataMast}) => {
                               </div>
                                     <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto mt-20">
                                         <NavLink to='/dashboard' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaTachometerAlt className="text-lg mr-3  my-8"/>
-                                                <li className=" border-gray-400 text-lg my-6 ">DASHBOARD</li>
+                                                <FaTachometerAlt className="text-sm mr-3  my-8"/>
+                                                <li className=" border-gray-400 text-sm my-6 ">DASHBOARD</li>
                                           </NavLink>
                                         <NavLink to='/profiles' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUserCircle className="text-lg mr-3 my-7 "/>
-                                                <li className="border-gray-400 text-lg my-6">PROFILE</li>
+                                                <FaUserCircle className="text-sm mr-3 my-7 "/>
+                                                <li className="border-gray-400 text-sm my-6">PROFILE</li>
                                         </NavLink>
                                         <NavLink to='/doctors' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUserNurse className="text-lg mr-3 my-7 "/>
-                                                <li className="border-gray-400 text-lg my-6">DOCTORS</li>
+                                                <FaUserNurse className="text-sm mr-3 my-7 "/>
+                                                <li className="border-gray-400 text-sm my-6">DOCTORS</li>
                                         </NavLink>
                                         <NavLink to='/schedules' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaCalendar className="text-lg mr-3 my-7 "/>
-                                                <li className=" border-gray-400 text-lg my-6">ABOUT</li>
+                                                <FaCalendar className="text-sm mr-3 my-7 "/>
+                                                <li className=" border-gray-400 text-sm my-6">ABOUT</li>
                                         </NavLink>
                                     </ul>
-                                    <ul className="text mt-10  w-4/5 mx-auto">
+                                    <ul className="text mt-5 w-4/5 mx-auto">
                                         <NavLink to='/contacts' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaPhoneAlt className="text-lg mr-3 my-7 "/>
-                                                <li className=" border-gray-400 text-lg my-6">CONTACTS</li>
+                                                <FaPhoneAlt className="text-sm mr-3 my-7 "/>
+                                                <li className=" border-gray-400 text-sm my-6">CONTACTS</li>
                                         </NavLink>
                                         {/* <NavLink to='/faq' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUser className="text-lg mr-3 my-8 "/>
-                                                <li className="border-gray-400 text-lg my-6">FAQ</li>
+                                                <FaUser className="text-sm mr-3 my-8 "/>
+                                                <li className="border-gray-400 text-sm my-6">FAQ</li>
                                         </NavLink> */}
                                         <NavLink exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaSignOutAlt className="text-lg mr-3 ml-4 underline-0 my-8 text-red-700"/>
-                                                <li className="border-gray-400 text-lg my-6 underline-offset-0 text-red-700" onClick={handleLogOut}>LOGOUT</li>
+                                                <FaSignOutAlt className="text-sm mr-3 ml-4 underline-0 my-8 text-red-700"/>
+                                                <li className="border-gray-400 text-sm my-6 underline-offset-0 text-red-700" onClick={handleLogOut}>LOGOUT</li>
                                         </NavLink>
                                     </ul>
                               </div>

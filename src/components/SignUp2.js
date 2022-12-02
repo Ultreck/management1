@@ -124,7 +124,7 @@ const SignUp2 = () => {
      <div className={loader}></div>
       <main className="text">
             <div className="w-full mx-auto  bg-orange-200  bg-fixed bg-no-repeat  bg-cover  h-screen scroll-smooth px-6 overflow-auto" style={{backgroundImage:`url(${bgimg1})`}}>
-                        <div className="flex md:border-r-0 border-r-8 border-r-orange-700  bg-sky-200 mx-auto w-full h-4/5 lg:w-3/5 md:h-4/5 md:my-20  my-20 rounded-lg overflow-auto">
+                        <div className="flex md:border-r-0 border-r-8 border-r-orange-700  bg-sky-200 mx-auto w-full h-full lg:w-3/5 md:h-4/5 md:my-20 rounded-lg overflow-auto">
                               <div className="text   bg-sky-200 w-full lg:w-1/2 h-full rounded-tl-lg rounded-bl-lg ">
                               <form className="text px-8" onSubmit={handleSubmit(formAuth)}>
                                     <p className="text-center  py-8 font-mono font-bold text-2xl">For Doctors</p>
@@ -142,7 +142,7 @@ const SignUp2 = () => {
                                           {errors.firstname?.type === "maxLength" && "The maximum letters is 20"}
                                     </span>
                                            <div className="border bg-white rounded-full py-2 px-2  outline-1  -translate-y-8 focus:outline-dashed outline-black shadow-inner shadow-gray-500">
-                                          <select name="gender" id="fields"  {...register("fieldOfSpecialization", {required: true})} className="w-5/6 outline-0 text-gray-500">
+                                          <select name="gender" id="fields"  {...register("fieldOfSpecialization", {required: true})} className="w-5/6 bg-white outline-0  text-gray-500">
                                                 <option value="" className="text-gray-300 bg-slate-100 " disabled>Profession</option>
                                                 <option value="" className="text-gray-300 bg-slate-100 " hidden>Profession</option>
                                                 <option value="Nursing Assistance" className="text  bg-slate-700 text-xl text-white">Nursing Assistance</option>
@@ -195,7 +195,7 @@ const SignUp2 = () => {
                                                       {errors.age?.type === "maxLength" && "The maximum age is 100"}
                                                 </span>
                                           <div className="border bg-white rounded-full py-2 px-2  -translate-y-36 outline-1 focus:outline-dashed outline-black shadow-inner shadow-gray-500">
-                                                 <select name="gender" id="gender"  {...register("gender", {required: true})} className="w-5/6 outline-0 text-gray-500">
+                                                 <select name="gender" id="gender"  {...register("gender", {required: true})} className="w-5/6 outline-0 text-gray-500 bg-white">
                                                       <option value="" className="text  bg-slate-100 text-gray-200" hidden>gender</option>
                                                       <option value="Male" className="text  bg-slate-700 text-white">Male</option>
                                                       <option value="Female" className="text  bg-slate-700 text-white">Female</option>

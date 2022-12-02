@@ -63,11 +63,11 @@ const Schedule = () => {
                   <span className="text-blue-500"> Nigeria</span>.
                   </h1>
                <img src={img} alt="" className="text w-32 h-32 float-right mt-16 rounded-lg md:hidden ml-4" />
-                  <p className="mt-10 text-xl">
-                              Welcome to <span className="text-  font-mono font-bold">WastroMedics, </span><br /> 
+                  <p className="mt-10 md:text-xl">
+                              Welcome to <span className="  font-mono font-bold">WastroMedics, </span><br /> 
                               a leading health centre, offering a range of medical services like <span className="">Chiropractic, Physical Therrapy, Dentist </span>and <span className="">Eye Exam.</span>
                         </p>
-                        <p className=" text-xl mt-4">We specialising  in solving  with different issues and our ability to provide medical services in over 20 languages, we are sure you will find the right doctor to help you. We work with individuals, couples and families, supporting adults, children and adolescents.</p>
+                        <p className=" md:text-xl mt-4">We specialising  in solving  with different issues and our ability to provide medical services in over 20 languages, we are sure you will find the right doctor to help you. We work with individuals, couples and families, supporting adults, children and adolescents.</p>
                         <p className=" text-xl mt-4 mb-10 font-bold">Thank You!</p>
               </div>
             {/* <span className="text font-bold text-xl absolute top-40 hidden right-40 md:flex">C.E.O</span> */}
@@ -81,39 +81,39 @@ const Schedule = () => {
 </div>
 {/* Nav Bar for Options and smaller screen mobiles */}
 <div className={sideNav}>
-                    <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-800 dark:text-white text-lg dark:border-r-gray-500 absolute right-0 top-28 md:hidden">
+                    <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-800 dark:text-white text-lg dark:border-r-gray-500 absolute right-0 top-16 md:hidden">
                     <h1 className="z-auto text-center mt-10 text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-400 to-blue-600 font-mono">WastroMedics</h1>
                     <div className="w-full">
                               <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto">
                                   <NavLink to='/dashboard' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                          <FaTachometerAlt className="text-lg mr-3  my-8"/>
-                                          <li className=" border-gray-400 text-lg my-6 ">DASHBOARD</li>
+                                          <FaTachometerAlt className="text-sm mr-3  my-8"/>
+                                          <li className=" border-gray-400 text-sm my-6 ">DASHBOARD</li>
                                     </NavLink>
                                   <NavLink to='/profiles' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                          <FaUserCircle className="text-lg mr-3 my-7 "/>
-                                          <li className="border-gray-400 text-lg my-6">PROFILE</li>
+                                          <FaUserCircle className="text-sm mr-3 my-7 "/>
+                                          <li className="border-gray-400 text-sm my-6">PROFILE</li>
                                   </NavLink>
                                   <NavLink to='/doctors' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                          <FaUserNurse className="text-lg mr-3 my-7 "/>
-                                          <li className="border-gray-400 text-lg my-6">DOCTORS</li>
+                                          <FaUserNurse className="text-sm mr-3 my-7 "/>
+                                          <li className="border-gray-400 text-sm my-6">DOCTORS</li>
                                   </NavLink>
                                   <NavLink to='/schedules' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                          <FaCalendar className="text-lg mr-3 my-7 "/>
-                                          <li className=" border-gray-400 text-lg my-6">ABOUT</li>
+                                          <FaCalendar className="text-sm mr-3 my-7 "/>
+                                          <li className=" border-gray-400 text-sm my-6">ABOUT</li>
                                   </NavLink>
                               </ul>
                               <ul className="text mt-10  w-4/5 mx-auto">
                                   <NavLink to='/contacts' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                          <FaPhoneAlt className="text-lg mr-3 my-7 "/>
-                                          <li className=" border-gray-400 text-lg my-6">CONTACTS</li>
+                                          <FaPhoneAlt className="text-sm mr-3 my-7 "/>
+                                          <li className=" border-gray-400 text-sm my-6">CONTACTS</li>
                                   </NavLink>
                                   {/* <NavLink to='/faq' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                          <FaUser className="text-lg mr-3 my-8 "/>
-                                          <li className="border-gray-400 text-lg my-6">FAQ</li>
+                                          <FaUser className="text-sm mr-3 my-8 "/>
+                                          <li className="border-gray-400 text-sm my-6">FAQ</li>
                                   </NavLink> */}
                                   <NavLink exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                          <FaSignOutAlt className="text-lg mr-3 my-8  text-red-700 ml-4"/>
-                                          <li className="border-gray-400 text-lg my-6 text-red-700" onClick={handleLogOut}>LOGOUT</li>
+                                          <FaSignOutAlt className="text-sm mr-3 my-8  text-red-700 ml-4"/>
+                                          <li className="border-gray-400 text-sm my-6 text-red-700" onClick={handleLogOut}>LOGOUT</li>
                                   </NavLink>
                               </ul>
                         </div>

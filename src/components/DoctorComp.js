@@ -164,8 +164,11 @@ const DoctorComp = ({profileDataMast}) => {
       <div className={loader}></div>
     <section className="text right-0 w-full  md:w-4/5 flex fixed md:gap-2 dark:bg-slate-900">
       <div className={tableRowClass}>
-            <div className="text bg-slate-100 dark:bg-slate-800 h-40 px-20 -translate-x-4 shadow-inner shadow-gray-300 fixed  md:px-80">
-                  <h1 className="text-2xl  text-center my-6 font-mono font-bold px-3">Doctors</h1>
+            <div className="text bg-slate-100 dark:bg-slate-800 h-40 px-20  shadow-inner -translate-x-5 md:-translate-x-0 shadow-gray-300 fixed  md:px-80">
+                  <h1 className="text-3xl flex  text-center my-6 font-mono font-bold px-3">
+                        <span className="text hidden md:flex">List Of </span>
+                        <span className="text ml-2">Doctors</span>
+                        </h1>
                   <FaBars className='md:hidden absolute right-8 top-7 mt-1 text-2xl dark:text-white' onClick={handleSideNav}/>
                   <h1 className="text-md  text-center mt-10">Click each row to see full details</h1>
             </div>
@@ -202,8 +205,12 @@ const DoctorComp = ({profileDataMast}) => {
       <div className={userProfileData2}>
             <div className="text bg-gray-50 h-auto md:w-1/4 mx-16 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 hidden fixed right-0 lg:grid px-12 py-10 mt-28">
                               <div className="text mb-8 flex">
-                                    <div className="text w-32 h-32 rounded-full bg-slate-600 dark:bg-slate-400">
-                                          <img src={profilePics} alt="" className="text  w-32 rounded-full h-32 p-1" />
+                                    <div className="text w-32 h-32 rounded-full bg-blue-600 dark:bg-slate-400">
+                                    {!profilePics? 
+                                    <img src={img} alt="" className='w-full rounded-full h-full p-1' />:
+                                    <img src={profilePics} alt="" className="text h-full rounded-full w-full p-1" />
+                                   
+                                    }
                                     </div>
                                     <div className="text flex ml-10 mt-12 gap-6">
                                         <div className="text h-10 pt-2 bg-blue-100 px-5 dark:bg-slate-500">Status:</div>
@@ -246,35 +253,38 @@ const DoctorComp = ({profileDataMast}) => {
       </div>
       {/* Each user's profile and display field at Smaller Screen  */}
       <div className={userProfileData1}>
-            <div className="text bg-gray-100 h-full  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  p-10 md:hidden w-full ">
+            <div className="text bg-gray-100 h-full  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  p-7 md:hidden w-full ">
                               <button className="text animate-bounce absolute right-20 text-3xl top-6 " onClick={handleBackArr}><FaArrowLeft/></button>
-                              <div className="text mb-8 flex w-full">
-                                    <div className="text border w-28 h-28 rounded-full bg-slate-600 dark:bg-slate-400">
-                                          <img src={profilePics} alt="" className="text  w-28 rounded-full h-28 p-1" />
+                              <div className="text mb-8 flex w-ful l">
+                                    <div className="text border w-24 h-24 rounded-full bg-orange-600 dark:bg-slate-400">
+                                    {!profilePics? 
+                                    <img src={img} alt="" className='w-full rounded-full h-full p-1' />:
+                                    <img src={profilePics} alt="" className="text  w-full rounded-full h-full p-1 " />
+                                    }
                                     </div>
-                                    <div className="text flex ml-5 mt-12 gap-3">
+                                    <div className="text flex ml-3 mt-10 gap-3">
                                         <div className="text h-10 pt-2 bg-blue-100 px-3 dark:bg-slate-500">Status:</div>
                                         <div className="text-center pt-2 bg-blue-100  h-10 text-xl font-mono font-extrabold dark:bg-slate-500 px-3">{status}</div>
                                     </div>
                               </div>
                               <div className="text">
                                     <div className="text w-full border-b">
-                                          <span className="text font-bold">Full Name:</span>
-                                          <span className="text pl-6">Dr. {clickedUserSur}</span>
-                                          <span className="text pl-4">{clickedUserFir}</span>
+                                          <span className="text font-bold">Name:</span>
+                                          <span className="text pl-3">Dr. {clickedUserSur}</span>
+                                          <span className="text pl-3">{clickedUserFir}</span>
                                     </div>
-                                    <div className="text w-full border-b my-20">
+                                    <div className="text w-full border-b my-10">
                                           <span className="text font-bold">Email:</span>
-                                          <span className="text pl-8">{clickedUserEm}</span>
+                                          <span className="text pl-4">{clickedUserEm}</span>
                                     </div>
-                                    <div className="text w-full border-b my-20">
+                                    <div className="text w-full border-b my-10">
                                           <span className="text font-bold">Contact:</span>
-                                          <span className="text pl-8">{clickedUserCon}</span>
+                                          <span className="text pl-4">{clickedUserCon}</span>
                                     </div>
                                     <div className='text'>
                                           <div className="text w-full border-b">
                                                 <span className="text font-bold">Profession:</span>
-                                                <span className="text pl-8">{clickedUserPro}</span>
+                                                <span className="text pl-4">{clickedUserPro}</span>
                                           </div>
                                     </div>
                               </div>
@@ -290,8 +300,8 @@ const DoctorComp = ({profileDataMast}) => {
                               <button onClick={handleSchedule} className="text-white font-bold text-lg hover:bg-blue-700 bg-blue-500 py-1 mt-">Schedule</button>
                         </div>
                         <div className={marque}>
-                              <h1 className="text mt-32 mx-auto font-mono font-bold text-3xl">This is Your profile</h1>
-                              <p className="mx-auto font-mono font-bold text-3xl mt-5">You Also A Doctor</p>
+                              <h1 className="text mt-32 mx-auto font-mono font-bold text-2xl">This is Your profile</h1>
+                              {/* <p className="mx-auto font-mono font-bold text-3xl mt-5">You Also A Doctor</p> */}
                         </div>
             </div>
 
@@ -306,34 +316,34 @@ const DoctorComp = ({profileDataMast}) => {
                           <div className="w-full">
                                     <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto mt-10">
                                         <NavLink to='/dashboard' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaTachometerAlt className="text-lg mr-3  my-8"/>
-                                                <li className=" border-gray-400 text-lg my-6 ">DASHBOARD</li>
+                                                <FaTachometerAlt className="text-sm mr-3  my-8"/>
+                                                <li className=" border-gray-400 text-sm my-6 ">DASHBOARD</li>
                                           </NavLink>
                                         <NavLink to='/profiles' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUserCircle className="text-lg mr-3 my-7 "/>
-                                                <li className="border-gray-400 text-lg my-6">PROFILE</li>
+                                                <FaUserCircle className="text-sm mr-3 my-7 "/>
+                                                <li className="border-gray-400 text-sm my-6">PROFILE</li>
                                         </NavLink>
                                         <NavLink to='/doctors' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUserNurse className="text-lg mr-3 my-7 "/>
-                                                <li className="border-gray-400 text-lg my-6">DOCTORS</li>
+                                                <FaUserNurse className="text-sm mr-3 my-7 "/>
+                                                <li className="border-gray-400 text-sm my-6">DOCTORS</li>
                                         </NavLink>
                                         <NavLink to='/schedules' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaCalendar className="text-lg mr-3 my-7 "/>
-                                                <li className=" border-gray-400 text-lg my-6">ABOUT</li>
+                                                <FaCalendar className="text-sm mr-3 my-7 "/>
+                                                <li className=" border-gray-400 text-sm my-6">ABOUT</li>
                                         </NavLink>
                                     </ul>
-                                    <ul className="text mt-10  w-4/5 mx-auto">
+                                    <ul className="text mt-5  w-4/5 mx-auto">
                                         <NavLink to='/contacts' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaPhoneAlt className="text-lg mr-3 my-7 "/>
-                                                <li className=" border-gray-400 text-lg my-6">CONTACTS</li>
+                                                <FaPhoneAlt className="text-sm mr-3 my-4 "/>
+                                                <li className=" border-gray-400 text-sm my-3">CONTACTS</li>
                                         </NavLink>
                                         {/* <NavLink to='/faq' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUser className="text-lg mr-3 my-8 "/>
-                                                <li className="border-gray-400 text-lg my-6">FAQ</li>
+                                                <FaUser className="text-sm mr-3 my-8 "/>
+                                                <li className="border-gray-400 text-sm my-6">FAQ</li>
                                         </NavLink> */}
-                                        <NavLink exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaSignOutAlt className="text-lg mr-3 my-8  text-red-700 ml-4"/>
-                                                <li className="border-gray-400 text-lg my-6 text-red-700" onClick={handleLogOut}>LOGOUT</li>
+                                        <NavLink exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline undsmline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
+                                                <FaSignOutAlt className="text-sm mr-3 my-4  text-red-700 ml-4"/>
+                                                <li className="border-gray-400 text-sm my-3 text-red-700" onClick={handleLogOut}>LOGOUT</li>
                                         </NavLink>
                                     </ul>
                               </div>
