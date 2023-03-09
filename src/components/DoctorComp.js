@@ -71,7 +71,10 @@ const DoctorComp = ({profileDataMast}) => {
       
       // Function for back to home in median screen
       const handleBackArr = () => {
-            setuserProfileData1('hidden')
+            setuserProfileData1('hidden');
+            setuserProfileData2('hidden');
+            settableRowClass("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto  md:ml-72 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300  px-10");
+            
       }
          
       // Get doctor's data function
@@ -162,24 +165,24 @@ const DoctorComp = ({profileDataMast}) => {
   return (
     <>
       <div className={loader}></div>
-    <section className="text right-0 w-full  md:w-4/5 flex fixed md:gap-2 dark:bg-slate-900">
+    <section className="text md:right-10 w-full  lg:w-10/12 flex fixed lg:gap-2 dark:bg-slate-900 ">
       <div className={tableRowClass}>
-            <div className="text bg-slate-100 dark:bg-slate-800 h-40 px-20  shadow-inner -translate-x-5 md:-translate-x-0 shadow-gray-300 fixed  md:px-80">
+            <div className="text bg-slate-100 dark:bg-slate-800 h-40 px-20  shadow-inner -translate-x-1 md:-translate-x-10  shadow-gray-300 fixed md:w-2/3   lg:w-1/2">
                   <h1 className="text-3xl flex  text-center my-6 font-mono font-bold px-3">
-                        <span className="text hidden md:flex">List Of </span>
                         <span className="text ml-2">Doctors</span>
                         </h1>
                   <FaBars className='md:hidden absolute right-8 top-7 mt-1 text-2xl dark:text-white' onClick={handleSideNav}/>
-                  <h1 className="text-md  text-center mt-10">Click each row to see full details</h1>
+                  {/* <h1 className="text-md  text-center mt-10">Click each row to see full details</h1> */}
             </div>
             {/* Table */}
             <div className="text overflow-x-auto relative mt-48 pb-20">        
-            <table className="md:text-xl border-collapse table-auto border border-slate-200 w-full">
+            <table className="md:text-md border-collapse table-auto border border-slate-200 w-full">
             <thead className='text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
                   <tr>
                         <th scope="col" class="border py-3 px-3 bg-slate-100 dark:bg-slate-600 dark:text-white">S/n</th>
                         <th scope="col" class="border py-3 px-6 bg-slate-100  dark:bg-slate-600 dark:text-white">Name</th>
-                        <th  scope="col" class="border py-3 px-3 bg-slate-100  dark:bg-slate-600 dark:text-white">Proffession</th>
+                        <th  scope="col" class="border py-3 px-3 bg-slate-100  dark:bg-slate-600 dark:text-white hidden lg:flex">Proffession</th>
+                        <th  scope="col" class="border py-3 px-3 bg-slate-100  dark:bg-slate-600 dark:text-white">Actions</th>
                         {/* <th  scope="col" class="border py-3 px-6 bg-slate-200">Contact</th> */}
 
                   </tr>
@@ -187,11 +190,13 @@ const DoctorComp = ({profileDataMast}) => {
                   {userArr.map((val, ind) => (
                         <>
                         <tbody className=''>
-                              <tr key={ind} className='cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-500' onTouchEnd={handleDocProfile} onClick={handleDocProfile} onTouchStart={() =>setclickedUsers(val._document.data.value.mapValue.fields)} onClickCapture={() =>setclickedUsers(val._document.data.value.mapValue.fields)}>
+                              <tr key={ind} className='cursor-pointer' onTouchEnd={handleDocProfile} onClick={handleDocProfile} onTouchStart={() =>setclickedUsers(val._document.data.value.mapValue.fields)} onClickCapture={() =>setclickedUsers(val._document.data.value.mapValue.fields)}>
                                     <td  class="border py-3 pl-5">{ind+1}</td>
                                     <td  class="border py-3 px-2">Dr. {val._document.data.value.mapValue.fields.firstname.stringValue}</td>
-                                    <td class="border py-3 px-2">{val._document.data.value.mapValue.fields.fieldOfSpecialization.stringValue}</td>
-                                    {/* <td class="border py-3 px-2">{val._document.data.value.mapValue.fields.contact.stringValue}</td> */}
+                                    <td class="border py-3 px-2 hidden lg:flex">{val._document.data.value.mapValue.fields.fieldOfSpecialization.stringValue}</td>
+                                    <td class="border py-1 px-1 dark:hover:bg-slate-500"  title="click to see full details">
+                                          <button className="text rounded w-full h-full  bg-sky-200 hover:bg-blue-700 hover:text-white">See details</button>
+                                    </td>
                               </tr>
                         
                         </tbody>
@@ -203,9 +208,10 @@ const DoctorComp = ({profileDataMast}) => {
       </div>
       {/* Each user's profile and display field at larg Screen */}
       <div className={userProfileData2}>
-            <div className="text bg-gray-50 h-auto md:w-1/4 mx-16 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 hidden fixed right-0 lg:grid px-12 py-10 mt-28">
+            <div className="text bg-gray-50 h-auto lg:w-1/3 mx-2 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 hidden fixed right-0 lg:grid px-10 py-10 mt-6">
+                              <button className="text animate-bounce absolute right-20 text-3xl top-6 " onClick={handleBackArr}><FaArrowLeft/></button>
                               <div className="text mb-8 flex">
-                                    <div className="text w-32 h-32 rounded-full bg-blue-600 dark:bg-slate-400">
+                                    <div className="text w-32 h-32 rounded-full bg-gray-200 dark:bg-slate-400">
                                     {!profilePics? 
                                     <img src={img} alt="" className='w-full rounded-full h-full p-1' />:
                                     <img src={profilePics} alt="" className="text h-full rounded-full w-full p-1" />
@@ -214,20 +220,20 @@ const DoctorComp = ({profileDataMast}) => {
                                     </div>
                                     <div className="text flex ml-10 mt-12 gap-6">
                                         <div className="text h-10 pt-2 bg-blue-100 px-5 dark:bg-slate-500">Status:</div>
-                                        <div className="text-center pt-2 bg-blue-100 w-40 h-10 text-xl font-mono font-extrabold dark:bg-slate-500">{status}</div>
+                                        <div className="text-center pt-2 bg-blue-100 w-40 h-10 text-sm font-mono font-extrabold dark:bg-slate-500">{status}</div>
                                     </div>
                               </div>
                               <div className="text">
-                                    <div className="text w-full border-b">
+                                    <div className="text  border-b">
                                           <span className="text font-bold">Full Name:</span>
                                           <span className="text pl-20">Dr. {clickedUserSur}</span>
                                           <span className="text pl-4">{clickedUserFir}</span>
                                     </div>
-                                    <div className="text w-full border-b my-20">
+                                    <div className="text w-full border-b my-8">
                                           <span className="text font-bold">Email:</span>
                                           <span className="text pl-20">{clickedUserEm}</span>
                                     </div>
-                                    <div className="text w-full border-b my-20">
+                                    <div className="text w-full border-b my-8">
                                           <span className="text font-bold">Contact:</span>
                                           <span className="text pl-20">{clickedUserCon}</span>
                                     </div>
@@ -241,7 +247,7 @@ const DoctorComp = ({profileDataMast}) => {
                               <div className="text grid">
                                     <h1 className="text-xl text-center mt-16 font-bold">Contact The Doctor</h1>
                                     <select name="" id="" className="dark:bg-slate-300 dark:text-black bg-slate-100 outline-0 py-2 my-4 px-6">
-                                          <option value="Choose" className="text dark:text-black" disabled>Choose</option>
+                                          <option value="Choose" className="text dark:text-black" hidden>Choose</option>
                                           <option value="CheckUp" className="text dark:text-black">CheckUp</option>
                                           <option value="Treatment" className="text dark:text-black">Treatment</option>
                                     </select>
@@ -253,10 +259,10 @@ const DoctorComp = ({profileDataMast}) => {
       </div>
       {/* Each user's profile and display field at Smaller Screen  */}
       <div className={userProfileData1}>
-            <div className="text bg-gray-100 h-full  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  p-7 md:hidden w-full ">
+            <div className="text bg-gray-100 h-full  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  p-7 lg:hidden w-full ">
                               <button className="text animate-bounce absolute right-20 text-3xl top-6 " onClick={handleBackArr}><FaArrowLeft/></button>
                               <div className="text mb-8 flex w-ful l">
-                                    <div className="text border w-24 h-24 rounded-full bg-orange-600 dark:bg-slate-400">
+                                    <div className="text border w-24 h-24 rounded-full bg-gray-200 dark:bg-slate-400">
                                     {!profilePics? 
                                     <img src={img} alt="" className='w-full rounded-full h-full p-1' />:
                                     <img src={profilePics} alt="" className="text  w-full rounded-full h-full p-1 " />
@@ -267,30 +273,30 @@ const DoctorComp = ({profileDataMast}) => {
                                         <div className="text-center pt-2 bg-blue-100  h-10 text-xl font-mono font-extrabold dark:bg-slate-500 px-3">{status}</div>
                                     </div>
                               </div>
-                              <div className="text">
-                                    <div className="text w-full border-b">
-                                          <span className="text font-bold">Name:</span>
-                                          <span className="text pl-3">Dr. {clickedUserSur}</span>
-                                          <span className="text pl-3">{clickedUserFir}</span>
+                              <div className="text-sm">
+                                    <div className="text-sm w-full border-b">
+                                          <span className="text-sm font-bold">Name:</span>
+                                          <span className="text-sm pl-3">Dr. {clickedUserSur}</span>
+                                          <span className="text-sm pl-3">{clickedUserFir}</span>
                                     </div>
-                                    <div className="text w-full border-b my-10">
-                                          <span className="text font-bold">Email:</span>
-                                          <span className="text pl-4">{clickedUserEm}</span>
+                                    <div className="text-sm w-full border-b my-8">
+                                          <span className="text-sm font-bold">Email:</span>
+                                          <span className="text-sm pl-4">{clickedUserEm}</span>
                                     </div>
-                                    <div className="text w-full border-b my-10">
-                                          <span className="text font-bold">Contact:</span>
-                                          <span className="text pl-4">{clickedUserCon}</span>
+                                    <div className="text-sm w-full border-b my-8">
+                                          <span className="text-sm font-bold">Contact:</span>
+                                          <span className="text-sm pl-4">{clickedUserCon}</span>
                                     </div>
-                                    <div className='text'>
-                                          <div className="text w-full border-b">
-                                                <span className="text font-bold">Profession:</span>
+                                    <div className='text-sm'>
+                                          <div className="text-sm w-full border-b">
+                                                <span className="text-sm font-bold">Profession:</span>
                                                 <span className="text pl-4">{clickedUserPro}</span>
                                           </div>
                                     </div>
                               </div>
                               {/* User's profile handler */}
                               <div className={doctCont} >
-                                    <h1 className="text-xl text-center mt-16 font-bold">Contact The Doctor</h1>
+                                    <h1 className="text-xl text-center mt-8 font-bold">Contact The Doctor</h1>
                                     <select name="" id="" className="w-full dark:bg-slate-300 dark:text-black bg-slate-200 outline-0 py-2 my-4 px-6">
                                           <option value="Choose" className="text" disabled>Choose</option>
                                           <option value="CheckUp" className="text">CheckUp</option>

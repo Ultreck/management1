@@ -228,22 +228,27 @@ const Dashboard = ({setprofileDataMast}) => {
   return (
     <>
      <div className={loader}></div>
-            <main className="text">
+            <main className="text ">
                   <div className="text z-50">
                         <NavBar className='' profilePics={profilePics} setsideNav={setsideNav} sideNav={sideNav}/>
                   </div>
-                 <section className="text flex dark:bg-slate-900 ">
+                 <section 
+            //      className="text flex dark:bg-slate-900 "
+                 >
                   <div className="text">
                         <SideNav profileData={profileData} className=''/>
                   </div>
 
-                  <div className=" bg-white p-4 md:ml-96 w-full  sm:w-3/5 md:h-auto lg:h-screen md:w-full lg:w-4/5  mt-20 dark:bg-slate-900  dark:text-white text-lg lg:p-8 mx-auto">
-                        <div className="text lg:flex overflow-auto">
-                              <div className="text md:w-2/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-72 shadow-inner drop-shadow-lg shadow-gray-300">
+                  <div 
+                  className='md:w-4/5 absolute right-0 pt-20'
+                  // className=" bg-white p-4 md:ml-96 w-full  sm:w-3/5 md:h-auto lg:h-screen md:w-full lg:w-4/5  mt-20 dark:bg-slate-900  dark:text-white text-lg lg:p-8 mx-auto"
+                  >
+                        <div className="text lg:flex w-full md:px-16 overflow-hidden">
+                              <div className="text  lg:w-1/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-72 shadow-inner drop-shadow-lg shadow-gray-300">
                                    <div className="text ">
                                           <div className="text flex relative w-full md:px-8 border-b pb-2">
                                                 <p className="text  w-full">Total Doctor's</p>
-                                                <div className="text w-48 dark:bg-pink-500 h-10 bg-pink-400 ml-14 md:ml-20 rounded-lg ">
+                                                <div className="text w-48 dark:bg-pink-500 h-10 bg-pink-400 ml-10 md:ml-20 rounded-lg ">
                                                       <div className="text-center font-mono font-bold text-3xl">{doctorsLenght} </div>
                                                 </div>
                                           </div>
@@ -252,7 +257,7 @@ const Dashboard = ({setprofileDataMast}) => {
                                           </div>
                                    </div>
                               </div>
-                              <div className="text md:w-2/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-72  shadow-inner drop-shadow-lg shadow-gray-300">
+                              <div className="text lg:w-1/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-72  shadow-inner drop-shadow-lg shadow-gray-300">
                               <div className="text ">
                                           <div className="text flex relative w-full md:px-8 border-b pb-2">
                                                 <p className="text  w-full">Total Patient's</p>
@@ -265,12 +270,12 @@ const Dashboard = ({setprofileDataMast}) => {
                                           </div>
                                    </div>
                               </div>
-                              <div className="text md:w-2/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-72  shadow-inner drop-shadow-lg shadow-gray-300">
+                              <div className="text lg:w-1/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-72  shadow-inner drop-shadow-lg shadow-gray-300">
                               <div className="text ">
                                           <div className="text flex relative w-full md:px-8 border-b pb-2">
-                                                <p className="text w-full">Total Schedule's</p>
+                                                <p className="text w-full">Total Records</p>
                                                 <div className="text w-48 h-10 bg-blue-400 ml-20 rounded-lg dark:bg-blue-500">
-                                                      <div className="text-center font-mono font-bold text-3xl">100</div>
+                                                      <div className="text-center font-mono font-bold text-3xl">{patietLenght + doctorsLenght}</div>
                                                 </div>
                                           </div>
                                           <div className="md:w-5/6 w-full mx-auto -translate-y-3  mt-3">
@@ -279,27 +284,27 @@ const Dashboard = ({setprofileDataMast}) => {
                                    </div>
                               </div>
                         </div>
-                        <div className="text lg:flex overflow-hidden">
-                              <div className="text md:w-2/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300 pt-20 md:pt-10">
+                        <div className="text lg:grid md:px-16 overflow-hidden">
+                              <div className="text lg:w-2/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300 pt-20 md:pt-5 lg:translate-x-1/4">
                                    <VBar 
                                    docMon={docMon} docTue={docTue} docWed={docWed} docThu={docThu} docFri={docFri} docSat={docSat} docSun={docSun}
                                    docMonp={docMonp} docTuep={docTuep} docWedp={docWedp} docThup={docThup} docFrip={docFrip} docSatp={docSatp} docSunp={docSunp}
                                    />
                               </div>
-                              <div className="text flex  md:w-4/5 bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300">
-                                   <div className="text w-1/3 border-r-2 md:px-20 pt-10">
+                              <div className="text-center flex  md:w-full bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-80  shadow-inner drop-shadow-lg shadow-gray-300">
+                                   <div className="text-center w-1/3 border-r-2 md:px-20 pt-10">
                                           <div className="text-center w-full">Income</div>
-                                          <div className="text w-20 h-20 rounded-full mt-10 bg-blue-700 "></div>
-                                          <div className="text w-full flex mt-14 border-b-blue-500 border-b mr-4"><FaDollarSign className='mt-2'/>6,000,000</div>
+                                          <div className="text w-20 h-20 rounded-full mt-10 bg-blue-700 mx-auto"></div>
+                                          <div className="text-center w-full flex mt-14 border-b-blue-500 border-b "><FaDollarSign className='mt-2 text-center'/>6,000,000</div>
                                    </div>
                                    <div className="text w-1/3 border-r-2  md:px-20 px-3  pt-10">
-                                          <div className="text-center w-full">Outcome</div>
-                                          <div className="text w-20 h-20 rounded-full mt-10 bg-red-500 "></div>
-                                          <div className="text w-full flex mt-14 border-b-red-500 border-b"><FaDollarSign className='mt-2'/>1,500,000</div>
+                                          <div className="text-center w-full">Budgets</div>
+                                          <div className="text-center w-20 h-20 rounded-full mt-10 bg-red-500 mx-auto"></div>
+                                          <div className="text-center w-full flex mt-14 border-b-red-500 border-b"><FaDollarSign className='mt-2'/>1,500,000</div>
                                    </div>
                                    <div className=" w-1/3  md:px-16  pt-10">
                                           <div className="text-center px-1 w-full">Profilt/Month</div>
-                                          <div className="text w-20 h-20 rounded-full mt-10  ml-5 bg-green-600"></div>
+                                          <div className="text w-20 h-20 rounded-full mt-10  ml-5 bg-green-600  mx-auto"></div>
                                           <div className="text w-full flex mt-14 border-b-green-500 border-b  mx-2"><FaDollarSign className='mt-2'/>500,000</div>
                                    </div>
                               </div>
@@ -342,40 +347,40 @@ const Dashboard = ({setprofileDataMast}) => {
                        
                       }
                               <div className="text flex mx-auto mt-4">
-                                    <span className="text-black font-semibold text-xl dark:text-white">{profileData.surname}</span>
+                                    <span className="text-black font-semibold text-xl dark:text-white">{profileData.surname || profileData.lastname}</span>
                                     <span className="text-black font-semibold text-xl dark:text-white ml-4">{profileData.firstname}</span>
                               </div>
                               </div>
                                     <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto mt-20">
                                         <NavLink to='/dashboard' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaTachometerAlt className="text-sm mr-3  my-8"/>
-                                                <li className=" border-gray-400 text-sm my-6 ">DASHBOARD</li>
+                                                <FaTachometerAlt className="text-sm mr-3  my-6"/>
+                                                <li className=" border-gray-400 text-sm my-4 ">DASHBOARD</li>
                                           </NavLink>
                                         <NavLink to='/profiles' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUserCircle className="text-sm mr-3 my-7 "/>
-                                                <li className="border-gray-400 text-sm my-6">PROFILE</li>
+                                                <FaUserCircle className="text-sm mr-3 my-5 "/>
+                                                <li className="border-gray-400 text-sm my-4">PROFILE</li>
                                         </NavLink>
                                         <NavLink to='/doctors' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaUserNurse className="text-sm mr-3 my-7 "/>
-                                                <li className="border-gray-400 text-sm my-6">DOCTORS</li>
+                                                <FaUserNurse className="text-sm mr-3 my-5 "/>
+                                                <li className="border-gray-400 text-sm my-4">DOCTORS</li>
                                         </NavLink>
                                         <NavLink to='/schedules' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaCalendar className="text-sm mr-3 my-7 "/>
-                                                <li className=" border-gray-400 text-sm my-6">ABOUT</li>
+                                                <FaCalendar className="text-sm mr-3 my-5 "/>
+                                                <li className=" border-gray-400 text-sm my-4">ABOUT</li>
                                         </NavLink>
                                     </ul>
                                     <ul className="text mt-5 w-4/5 mx-auto">
                                         <NavLink to='/contacts' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaPhoneAlt className="text-sm mr-3 my-7 "/>
-                                                <li className=" border-gray-400 text-sm my-6">CONTACTS</li>
+                                                <FaPhoneAlt className="text-sm mr-3 my-5 "/>
+                                                <li className=" border-gray-400 text-sm my-4">CONTACTS</li>
                                         </NavLink>
                                         {/* <NavLink to='/faq' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
                                                 <FaUser className="text-sm mr-3 my-8 "/>
                                                 <li className="border-gray-400 text-sm my-6">FAQ</li>
                                         </NavLink> */}
                                         <NavLink exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>
-                                                <FaSignOutAlt className="text-sm mr-3 ml-4 underline-0 my-8 text-red-700"/>
-                                                <li className="border-gray-400 text-sm my-6 underline-offset-0 text-red-700" onClick={handleLogOut}>LOGOUT</li>
+                                                <FaSignOutAlt className="text-sm mr-3 ml-4 underline-0 my-6 text-red-700"/>
+                                                <li className="border-gray-400 text-sm my-4 underline-offset-0 text-red-700" onClick={handleLogOut}>LOGOUT</li>
                                         </NavLink>
                                     </ul>
                               </div>

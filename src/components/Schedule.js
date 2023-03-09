@@ -47,16 +47,17 @@ const Schedule = () => {
   window.alert("Sorry Due to some internal error you are unable to log out")
   });
     }
-  return (
-    <> 
+    return (
+            <> 
     <div className={loader}></div>
-    <div className=" bg-white dark:bg-slate-900 dark:text-white h-screen w-full  overflow-hidden">
+    <div className=" bg-white dark:bg-slate-900  dark:text-white h-screen w-full  overflow-hidden">
     <div className='w-full  overflow-hidden'>
-    <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-700 md:w-1/2 h-full overflow-hidden w-full absolute md:h-4/5 md:left-1/3 md:mx-auto px-5 md:px-20 py-16 md:mt-28">
+    <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-700 md:w-2/3 lg:w-1/2 h-full overflow-hidden w-full absolute md:right-10 md:h-4/5 lg:left-1/3 md:mx-auto px-5 md:px-20 py-16 md:mt-28">
                 <Link className='text md:hidden'>
                           <FaBars className='absolute right-10 top-6 text-3xl' onClick={handleSideNav}/>
                   </Link>
           <div className="text w-full h-full bg-white dark:bg-slate-900 overflow-auto py-10 md:py-10 px-5">
+            <img src={img} alt="" className="text w-32 h-40 hidden md:flex absolute right-24 top-16" />
               <div className="text md:w-2/3  h-full">
                   <span className="text-blue-500">Health comes first...</span>
                   <h1 className="text-2xl md:text-4xl font-extrabold text-gray-500 mt-5  dark:text-white">The Number One Medical Management System In 
@@ -72,8 +73,7 @@ const Schedule = () => {
               </div>
             {/* <span className="text font-bold text-xl absolute top-40 hidden right-40 md:flex">C.E.O</span> */}
             {/* <span className="text font-bold text-xl absolute md:top-2/3 md:right-32 top-80 z-30 translate-y-14 right-16 md:translate-y-8 dark:text-white">A.O. Emmanuel</span> */}
-            <div className="text w-80 h-96 hidden md:flex drop-shadow-lg rounded-xl absolute z-10 right-5 top-52 bg-white  overflow-hidden">
-                <img src={img} alt="" className="text w-full h-full" />
+            <div className="text w-80 h-96 hidden sticky drop-shadow-lg rounded-xl  z-10  bg-white  overflow-hidden">
           </div>
         </div>
     </div>

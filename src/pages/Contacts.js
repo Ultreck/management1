@@ -81,52 +81,52 @@ window.alert("Sorry Due to some internal error you are unable to log out")
     </div>
     <div className=" bg-white dark:bg-slate-900 dark:text-white h-screen w-full">
           <div className='w-full'>
-          <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-800 md:w-1/2 w-full absolute h-screen md:left-1/3 md:mx-auto px-10 md:px-20 py-20">
+          <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-800 md:w-1/2 w-full absolute h-screen md:left-1/3 md:mx-auto px-10 md:px-20 py-10">
                       <Link className='text md:hidden'>
                                 <FaBars className='absolute right-10 top-8 text-3xl' onClick={handleSideNav}/>
                           </Link>
-                <h1 className=" mb-8 text-center font-mono font-semibold text-2xl">Chat me up </h1>
+                <h1 className=" mb-8 text-center font-mono font-semibold text-xl">Chat me up </h1>
                 <ul className="">
                       <li className="">
-                            <a href="https://www.facebook.com/emmanuel.oluwatayese" className="my-5 flex gap-3 md:text-xl md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
+                            <a href="https://www.facebook.com/emmanuel.oluwatayese" className="my-2 flex gap-3 md:text-sm md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
                                         <FaFacebook className="mt-1"/>
                                         <span className="">Facebook</span>
                             </a>
                       </li>
                       <li className="">
-                            <a href="https://wa.me/qr/6VF2TF3N3PN7G1" className="my-5 flex gap-3 md:text-xl md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
+                            <a href="https://wa.me/qr/6VF2TF3N3PN7G1" className="my-2 flex gap-3 md:text-sm md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
                                         <FaWhatsapp className="mt-1"/>
                                         <span className="">Whatsapp</span>
                             </a>
                       </li>
                       <li className="">
-                            <a href="https://twitter.com/Ultreck1?s=09" className="my-5 flex gap-3 md:text-xl md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
+                            <a href="https://twitter.com/Ultreck1?s=09" className="my-2 flex gap-3 md:text-sm md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
                                   <FaTwitter className="mt-1"/>
                                   <span className="">Twitter</span>
                             </a>
                       </li>
                       <li className="">
-                            <a href="https://www.instagram.com/emmanuel_oluwatayese?r=nametag" className="my-5 flex gap-3 md:text-xl md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
+                            <a href="https://www.instagram.com/emmanuel_oluwatayese?r=nametag" className="my-2 flex gap-3 md:text-sm md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
                                   <FaInstagram className="mt-1"/>
                                   <span className="">Instagram</span>
                             </a>
                       </li>
                       <li className="">
-                            <a href="https://www.linkedin.com/in/a-emmanuel-oluwatayese-39254b218" className="my-5 flex gap-3 md:text-xl md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
+                            <a href="https://www.linkedin.com/in/a-emmanuel-oluwatayese-39254b218" className="my-2 flex gap-3 md:text-sm md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
                                   <FaLinkedin className="mt-1"/>
                                   <span className="">Linkedin</span>
                             </a>
                       </li>
                       <li className="">
-                            <a href="https://youtube.com/channel/UCO1CNgEARCnuodUuy9JVaAw" className="my-5 flex gap-3 md:text-xl md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
+                            <a href="https://youtube.com/channel/UCO1CNgEARCnuodUuy9JVaAw" className="my-2 flex gap-3 md:text-sm md:my-7 hover:bg-slate-200 w-40 px-5 dark:text-white dark:hover:bg-slate-500 hover:scale-110">
                                   <FaYoutube className="mt-1"/>
                                   <span className=" ">Youtube</span>
                             </a>
                       </li>
                 </ul>
-                <div className=" text-center">
-                      <h1 className="text-xl font-semibold mb-4 md:text-2xl">Enquiries/Question</h1>
-                      <p className="text w-full mx-auto md:text-xl">Now that you know a lot about us, let us know if you have any enquiries or request.</p>
+                <div className=" text-center mt-10">
+                      <h1 className="text-sm font-semibold mb-4 md:text-sm">Enquiries/Question</h1>
+                      <p className="text w-full mx-auto md:text-sm">Now that you know a lot about us, let us know if you have any enquiries or request.</p>
                       <form className=" mt-4" ref={form} onSubmit={sendEmail}>
                             <div className="text ">
                                   <div className="text flex w-full">
@@ -144,7 +144,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                                   </div>
                                   <div className="text ">
                                         <textarea textarea name="message"  
-                                        id="textarea" rows="5"
+                                        id="textarea" rows="3"
                                         className="text mt-6 w-full  pl-4 dark:text-black dark:bg-slate-300"  
                                         placeholder='Message'
                                         value={message}
@@ -152,8 +152,8 @@ window.alert("Sorry Due to some internal error you are unable to log out")
                                               <label htmlFor="" className="text ms-3 col-3 fst-italic "></label>
                                   </div>
                             </div>
-                      <div className="text-end col-11 mx-auto mt-4 subm">
-                            <button type='submit' className="text bg-blue-500 hover:bg-blue-800 px-8 md:w-1/3 py-2 text-white font-mono font-semibold">Get In Touch</button>
+                      <div className="text-end col-11 mx-auto mt-2 subm">
+                            <button type='submit' className="text bg-blue-500 hover:bg-blue-800 px-8 md:w-1/2 py-2 text-white ">Get In Touch</button>
                       </div>
                       </form>
                 </div>
@@ -163,7 +163,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
      {/* Nav Bar for Options and smaller screen mobiles */}
      <div className={sideNav}>
                           <div className="text-white w-72 h-full bg-slate-400 dark:bg-slate-900 dark:text-white text-lg dark:border-r-gray-500 absolute right-0 top-16 md:hidden">
-                          <h1 className="z-auto text-center mt-10 text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-400 to-blue-600 font-mono">WastroMedics</h1>
+                          <h1 className="z-auto text-center mt-10 text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-400 to-blue-600 font-mono">WastroMedics</h1>
                           <div className="w-full">
                                     <ul className="text mx-auto  border-b border-b-gray-500  pb-10 w-4/5 lg:mx-auto">
                                         <NavLink to='/dashboard' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>

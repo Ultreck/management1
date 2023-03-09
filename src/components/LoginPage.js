@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, getDocs, collection } from 'firebase/firestore/lite';
 import { getAuth,  signInWithEmailAndPassword } from "firebase/auth";
 import {Icon} from 'react-icons-kit';
+import img from '../images/human_body_system_no_label-removebg-preview.png'
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import {eyeOff} from 'react-icons-kit/feather/eyeOff';
@@ -14,8 +15,12 @@ import { stringify } from 'postcss';
 const LoginPage = ({settimeFrame}) => {
   // const [users, setusers] = useState()
   // const [firestorePtEmail, setfirestorePtEmail] = useState()
-  const [logInEmail, setlogInEmail] = useState()
-  const [logInPassword, setlogInPassword] = useState()
+  // const [logInEmail, setlogInEmail] = useState()
+  // const [logInPassword, setlogInPassword] = useState()
+  const [allUsersData, setallUsersData] = useState({
+    email:"",
+    password:""
+  })
   const navigate = useNavigate();
   const [loader, setloader] = useState('loader')
    
@@ -23,8 +28,11 @@ useEffect(() => {
   setloader('text')
 }, [])
 
-  // Form registration and extentions
-  const {register, handleSubmit, watch, formState:{errors}} =useForm()
+const handleChange = (e) =>{
+  const {value, name} = e.target;
+  setallUsersData({...allUsersData, [name]:value})
+ //  console.log(allUsersData);
+}
 
 
     // Show password function
@@ -60,9 +68,10 @@ useEffect(() => {
     
 
       
-      const handleLogin = () =>{
-        // e.preventDefault();
-      signInWithEmailAndPassword(auth, logInEmail, logInPassword)
+      const handleLogin = (e) =>{
+        e.preventDefault();
+        // console.log(allUsersData.email, allUsersData.password);
+      signInWithEmailAndPassword(auth, allUsersData.email, allUsersData.password)
       .then((userCredential) => {
         const user = userCredential.user;
         let userEmail = user.email;
@@ -72,7 +81,7 @@ useEffect(() => {
         window.alert("Successfully Login");
       })
       .catch((error) => {
-        const errorMessage = error.message;
+        const errorMessage = error;
         window.alert(errorMessage)
       });
       
@@ -82,29 +91,22 @@ useEffect(() => {
   return (
     <>
      <div className={loader}></div>
-          <div className="text bg-gray-200 w-full dark:bg-slate-900 h-screen  overflow-hidden justify-center align-middle absolute">
-          <div className="text">
-                <Link to={'/patientSignUp'}>
-                    <button className="text-center w-1/2 py-2 absolute right-0 text-white rounded-tl-full rounded-bl-full md:hidden font-mono font-bold bg-slate-400 mt-24">Sign Up</button>
-                </Link>
-              </div>
-              <div className="text md:w-2/3 w-full px-6 mt-44 rounded-xl lg:w-1/2   mx-auto bg-gray-50 md:h-2/3 h-3/5 dark:bg-slate-700 dark:text-white shadow-inner  pt-10  drop-shadow-xl">
-                  <div className="text-balck dark:text-white px-6 bg-white h-4/5 my-10 w-full md:w-2/3 lg:w-3/5 mx-auto rounded-lg dark:bg-slate-800 shadow-inner shadow-gray-300 py-6 drop-shadow-xl">
-                        <h1 className="text-xl text-center font-mono font-bold">Sign In Page</h1>
-                       <form  className="text grid grid-cols-1  gap-10 mt-10" onSubmit={handleSubmit(handleLogin)}>
-                          <input type="email"  {...register("email", {required: true})} id="inpemail" onChange={(e) =>setlogInEmail(e.target.value)} className="text py-3  rounded-full px-6  focus:outline-dotted outline-2 outline-gray-800 bg-gray-100 dark:bg-slate-300 dark:focus:outline-dotted dark:outline-yellow-500 dark:text-black dark:outline-2" placeholder='email' />
-                          <input  type={type}  {...register("password", {required: true})}  id="inppassword" onChange={(e) => setlogInPassword(e.target.value)} className="text py-3 rounded-full px-6  focus:outline-dotted outline-2 outline-gray-800 bg-gray-100 dark:bg-slate-300 dark:focus:outline-dotted dark:outline-yellow-500 dark:text-black dark:outline-2" placeholder='password' />
-                          <span onClick={handleAuth} className="text w-20 absolute dark:text-black  py-2 text-center  z-10 right-6 rounded-full translate-y-24"><Icon icon={icon}/></span>
-                          <button className="text bg-blue-500 w-1/2 mx-auto py-2 rounded-full text-white font-bold text-lg font-serif hover:scale-105 hover:bg-blue-700  hover:text-xl ">Login</button>
+     <div className="text bg-cover bg-no-repeat bg-center w-full h-screen pt-40 dark:bg-slate-800 dark:text-white" style={{backgroundImage:`url(${img})`}}>
+              <div className="mx-auto  shadow-lg px-6  md:px-12 rounded-md  max-w-sm md:max-w-md lg:max-w-lg h-auto  bg-white border dark:border-slate-700 dark:bg-slate-700 dark:text-white py-10" >
+                        <h1 className="text-xl font-mono font-bold">Sign In</h1>
+                       <form  className="text grid grid-cols-1 mt-3" onSubmit={handleLogin}>
+                       <input name='email' placeholder='Email' onChange={handleChange} value={allUsersData.email} type="email" className="text w-full rounded p-1 dark:bg-slate-200 dark:text-black my-4 placeholder:italic placeholder:text-slate-400 border outline-none" />
+                      <input name='password' placeholder='Password' onChange={handleChange} value={allUsersData.password} type={type} className="text w-full rounded p-1 dark:bg-slate-200 dark:text-black my-4 placeholder:italic placeholder:text-slate-400 border outline-none" />
+                      <div className="text-end mr-10">
+                          <label htmlFor="" onClick={handleAuth} className='text-center absolute  w-10 dark:text-slate-900 -translate-y-12'><Icon icon={icon}/></label>
+                      </div>
+                      <div className="text-end">
+                          <button className="text bg-blue-600 w-1/2 mx-auto py-1 text-white font-bold  font-serif mt-5 hover:scale-105 hover:bg-blue-500 ">Login</button>
+                      </div>
                        </form>
                   </div>
-              </div>
-              <div className="text">
-                <Link to={'/'}>
-                    <button className="text-center w-1/2 py-2 text-white rounded-tr-full rounded-br-full md:hidden mt-10 font-mono font-bold bg-slate-400">Landing Page</button>
-                </Link>
-              </div>
-          </div>
+
+     </div>
     </>
   )
 }
