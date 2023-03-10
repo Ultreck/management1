@@ -26,7 +26,7 @@ const NavBar = ({profilePics, handleChanges, query}) => {
             <header className="text bg-gray-50 border-b h-20 md:px-16 py-5 dark:bg-slate-900 dark:border-b-gray-500 px-8 w-full ">
                   <nav className='text flex'>
                         <div className="tex flex md:w-3/4 ">
-                              <h1 className='lg:ml-20   text-2xl text-blue-800 dark:text-white font-mono font-extrabold '>WastroMedic</h1>
+                              <h1 className='lg:ml-20   text-2xl text-blue-800 dark:text-white font-mono font-extrabold '>WastroMedics</h1>
                               <input type="search" name='search'
                                value={query}
                                 onChange={handleChanges} 
