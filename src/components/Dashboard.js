@@ -6,7 +6,7 @@ import {  getStorage, ref,  getDownloadURL } from 'firebase/storage';
 import VBar from '../charts/VBar';
 import {FaUser, FaTachometerAlt,  FaUserCircle, FaCalendar, FaUserNurse, FaPhoneAlt, FaSignOutAlt, FaDollarSign, FaBed, FaUserFriends, FaWalking} from 'react-icons/fa';
 import img from '../images/zz4.jpg'
-import {NavLink} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 // import options from '../charts/DocLineChart';
 import SideNav from './SideNav';
 import { useNavigate } from 'react-router-dom';
@@ -17,9 +17,10 @@ import ScheduleChart from '../charts/ScheduleChart';
 import Profiles from '../pages/Profiles';
 
 
-const Dashboard = ({setprofileDataMast}) => {
+const Dashboard = ({setprofileDataMast, setclickedDoctorsData}) => {
       const navigate = useNavigate();
       // UseState section
+      const [data, setdata] = useState([])
       const [doctorsLenght, setdoctorsLenght] = useState()
       const [snapShortData1, setsnapShortData1] = useState([])
       const [snapShortData2, setsnapShortData2] = useState([])
@@ -90,6 +91,7 @@ const Dashboard = ({setprofileDataMast}) => {
           const getDrData = async() => {
             const querySnapshot = await getDocs(collection(db, "doctorsData"));
             setdoctorsLenght(querySnapshot.docs.length)
+            setdata(querySnapshot._docs)
             let userEmail =JSON.parse(localStorage.getItem("currentUserEmail")) ;
             setsnapShortData1(querySnapshot._docs._document);
             querySnapshot.forEach((doc, indx) => {
@@ -225,12 +227,39 @@ const Dashboard = ({setprofileDataMast}) => {
         window.alert("Sorry Due to some internal error you are unable to log out")
     });
           }
+
+
+          
+          
+          const [filterateData, setfilterateData] = useState([])
+          const [query, setquery] = useState("")
+          const [filtedDoctor, setfiltedDoctor] = useState({})
+          useEffect(() => {
+            // data.map(item => console.log(item._document.data.value.mapValue.fields.firstname.stringValue));
+            setfilterateData(data.filter(item => item._document.data.value.mapValue.fields.firstname.stringValue?.toLowerCase().includes(query.toLowerCase())))
+      }, [data, query])
+
+  const handleChanges = (e) =>{
+    setquery(e.target.value)
+  }
+
+const getFiltedData = (e) =>{
+      let firstN = e._document.data.value.mapValue.fields.firstname.stringValue
+      let surN = e._document.data.value.mapValue.fields.surname.stringValue
+      let emailClicked = e._document.data.value.mapValue.fields.email.stringValue
+      localStorage.setItem("names", JSON.stringify(emailClicked))
+      console.log(firstN, surN);
+      setclickedDoctorsData(e._document.data.value.mapValue.fields);
+      navigate('/doctors');
+}
+
+
   return (
     <>
      <div className={loader}></div>
             <main className="text ">
                   <div className="text z-50">
-                        <NavBar className='' profilePics={profilePics} setsideNav={setsideNav} sideNav={sideNav}/>
+                        <NavBar className='' profilePics={profilePics} setsideNav={setsideNav} sideNav={sideNav} handleChanges={handleChanges} query={query}  />
                   </div>
                  <section 
             //      className="text flex dark:bg-slate-900 "
@@ -239,11 +268,33 @@ const Dashboard = ({setprofileDataMast}) => {
                         <SideNav profileData={profileData} className=''/>
                   </div>
 
+                  <div className="text  dark:bg-slate-900  mx-auto  pt-24"></div>
+                  <div className="text fixed top-16 mt-2 rounded mx-auto bg-slate-200 border shadow-lg  dark:bg-slate-200 w-full lg:w-3/5 z-50 hidden  md:left-1/4  md:w-2/3 lg:right-1/2 lg:translate-x-3 h-auto md:grid"> 
+                  {query?filterateData.map((item, index) => 
+                        <div className='text'>
+                              <button  onClick={() =>getFiltedData(item)}>
+                                    <table className="text grid ">
+                                          <tr className="text w-full ">
+                                                <td className="text  px-6  ">
+                                                             {query?item._document.data.value.mapValue.fields.firstname.stringValue: ''}
+                                                </td>
+                                                <td className="text ">
+                                                            {query?item._document.data.value.mapValue.fields.surname.stringValue: ''}
+                                                </td>
+                                          </tr>
+                                          
+                                    </table>
+                              </button>
+                        </div>
+                        ): 
+                        <span className="text hidden"></span>
+                        }</div>
                   <div 
-                  className='md:w-4/5 absolute right-0 pt-20'
+                  className='md:w-4/5 absolute right-0 pt-10 dark:bg-slate-900  dark:text-white'
                   // className=" bg-white p-4 md:ml-96 w-full  sm:w-3/5 md:h-auto lg:h-screen md:w-full lg:w-4/5  mt-20 dark:bg-slate-900  dark:text-white text-lg lg:p-8 mx-auto"
                   >
-                        <div className="text lg:flex w-full md:px-16 overflow-hidden">
+                        <h1 className="text-xl mx-20">Hospital's data charts</h1>
+                        <div className="text lg:flex w-4/5 md:w-full mx-auto md:px-16 overflow-hidden">
                               <div className="text  lg:w-1/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-72 shadow-inner drop-shadow-lg shadow-gray-300">
                                    <div className="text ">
                                           <div className="text flex relative w-full md:px-8 border-b pb-2">
@@ -284,7 +335,7 @@ const Dashboard = ({setprofileDataMast}) => {
                                    </div>
                               </div>
                         </div>
-                        <div className="text lg:grid md:px-16 overflow-hidden">
+                        <div className="text lg:grid w-5/6 md:w-full mx-auto md:px-16 overflow-hidden">
                               <div className="text lg:w-2/3  bg-white dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-96  shadow-inner drop-shadow-lg shadow-gray-300 pt-20 md:pt-5 lg:translate-x-1/4">
                                    <VBar 
                                    docMon={docMon} docTue={docTue} docWed={docWed} docThu={docThu} docFri={docFri} docSat={docSat} docSun={docSun}
@@ -309,8 +360,8 @@ const Dashboard = ({setprofileDataMast}) => {
                                    </div>
                               </div>
                         </div>
-                        <h1 className="text-center  md:w-4/6 font-semibold text-xl dark:text-white translate-y-2">Hospital Survey</h1>
-                        <div className="text md:flex overflow-auto">
+                        <h1 className="text px-10 font-semibold text-xl dark:text-white translate-y-2">Hospital Survey</h1>
+                        <div className="text md:flex overflow-auto  w-5/6 md:w-full mx-auto">
                               <div className="text md:w-full bg-slate-50 text-center dark:bg-slate-800 dark:text-white md:mx-2 p-5 rounded-xl my-4 h-auto flex-wrap shadow-inner drop-shadow-md flex">
                                          <div className="text grid w-1/2  md:w-1/4 border-r-2 border-b-2 md:border-b-0">
                                                 <span className="text my-2 mx-auto text-3xl font-bold "><FaBed/></span>

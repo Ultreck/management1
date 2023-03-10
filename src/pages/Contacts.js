@@ -81,7 +81,7 @@ window.alert("Sorry Due to some internal error you are unable to log out")
     </div>
     <div className=" bg-white dark:bg-slate-900 dark:text-white h-screen w-full">
           <div className='w-full'>
-          <div className="text bg-slate-100 shadow-inner drop-shadow-lg dark:bg-slate-800 md:w-1/2 w-full absolute h-screen md:left-1/3 md:mx-auto px-10 md:px-20 py-10">
+          <div className="text bg-slate-200 shadow-inner drop-shadow-lg dark:bg-slate-800 md:w-1/2 w-full absolute h-screen md:left-1/3 md:mx-auto px-10 md:px-20 py-10">
                       <Link className='text md:hidden'>
                                 <FaBars className='absolute right-10 top-8 text-3xl' onClick={handleSideNav}/>
                           </Link>

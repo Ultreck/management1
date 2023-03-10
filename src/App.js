@@ -19,11 +19,13 @@ import Faq from './pages/Faq';
 
 function App(options, data, props) {
   // AOS.init()
-  
+  const [clickedDoctorsData, setclickedDoctorsData] = useState()
   const [profileDataMast, setprofileDataMast] = useState({})
   const [profilePics, setprofilePics] = useState(null)
   const [timeFrame, settimeFrame] = useState()
   // console.log(timeFrame);
+
+  // console.log(allDoctorsData);
 
 
   
@@ -35,9 +37,9 @@ function App(options, data, props) {
             <Route path='/patientSignUp' element={<SignUp/>}></Route>
             <Route path='/docSignUp' element={<SignUp2/>}></Route>
             <Route path='/login' element={<LoginPage />}></Route>
-            <Route path='/dashboard' element={<Dashboard setprofileDataMast={setprofileDataMast}/>}></Route>
+            <Route path='/dashboard' element={<Dashboard setprofileDataMast={setprofileDataMast}  setclickedDoctorsData={setclickedDoctorsData}  />}></Route>
             <Route path='/profiles' element={<Profiles profileDataMast={profileDataMast}/>}></Route>
-            <Route path='/doctors' element={<Doctors profileDataMast={profileDataMast} />}></Route>
+            <Route path='/doctors' element={<Doctors profileDataMast={profileDataMast} clickedDoctorsData={clickedDoctorsData} />}></Route>
             <Route path='/schedules' element={<Schedules/>}></Route>
             <Route path='/contacts' element={<Contacts/>}></Route>
             <Route path='/faqq' element={<Faq/>}></Route>

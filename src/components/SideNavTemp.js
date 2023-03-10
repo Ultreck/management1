@@ -26,7 +26,7 @@ const SideNavTemp = ({profileData}) => {
       const [active, setactive] = useState('font-bold transition underline underline-offset-2 ease-in-out scale-110')
   return (
     <>
-             <div className="bg-gray-50 fixed w-1/5  h-screen md:flex dark:border-r border-r-2 hidden dark:bg-slate-800 dark:text-white text-lg dark:border-r-gray-500 pt-16 ">
+             <div className="bg-gray-50 fixed lg:w-1/6   h-screen md:flex dark:border-r border-r-2 hidden z-10 dark:bg-slate-800 dark:text-white text-lg dark:border-r-gray-500 pt-16 ">
                               <div className="w-full">
                                     <ul className="text  border-b border-b-gray-500 pl-24 pb-10 w-4/5 lg:mx-auto">
                                         <NavLink to='/dashboard' exact activeclassName={active} className={'flex hover:font-bold hover:transition hover:underline underline-offset-2 ease-in-out md:-translate-x-16 hover:scale-110 '}>

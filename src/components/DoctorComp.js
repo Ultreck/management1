@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from "firebase/auth";
 import {NavLink} from 'react-router-dom';
 
-const DoctorComp = ({profileDataMast}) => {
+const DoctorComp = ({profileDataMast, clickedDoctorsData}) => {
       const navigate = useNavigate();
       // Firebase configuration and set up 
       const firebaseConfig = {
@@ -47,21 +47,23 @@ const DoctorComp = ({profileDataMast}) => {
       const [email, setemail] = useState();
       const [status, setstatus] = useState('Available');
       const [sideNav, setsideNav] = useState();
-      const [tableRowClass, settableRowClass] = useState("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto  md:ml-72 dark:bg-slate-900  dark:text-white shadow-inner shadow-gray-300  px-10 ");
+      const [tableRowClass, settableRowClass] = useState("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto   lg:ml-72 dark:bg-slate-900  dark:text-white shadow-inner shadow-gray-300  px-10 ");
       const [clickedUserFir, setclickedUserFir] = useState();
       const [clickedUserCon, setclickedUserCon] = useState();
       const [clickedUserPro, setclickedUserPro] = useState();
       const [active, setactive] = useState('font-bold transition underline underline-offset-2 ease-in-out scale-110')
       const [loader, setloader] = useState('loader')
+      const [localStorageData, setlocalStorageData] = useState()
 
 
       // UseEffect Hook
       useEffect(() => {
+            setlocalStorageData(JSON.parse(localStorage.getItem('names')))
             getDrData();
             const downloadUrl = ref(storage, `profilePics/${email}`);
             getDownloadURL(downloadUrl).then((url) => {
                   setprofilePics(url);
-            });
+            }).catch(err => console.log(err));
             // console.log(userArr);
             handleDocProfile();
             setloader('text')
@@ -73,7 +75,7 @@ const DoctorComp = ({profileDataMast}) => {
       const handleBackArr = () => {
             setuserProfileData1('hidden');
             setuserProfileData2('hidden');
-            settableRowClass("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto  md:ml-72 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300  px-10");
+            settableRowClass("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto  lg:ml-72 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300  px-10");
             
       }
          
@@ -99,6 +101,7 @@ const DoctorComp = ({profileDataMast}) => {
          setuserProfileData1(' flex')
          settableRowClass("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto  md:ml-6 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300  px-10")
          getMatchPics();
+         localStorage.removeItem("names")
 
       //    Conditional Statement to know whether the current user clicked on his/her own profile
          if(localStorageEm === clickedUserEm){
@@ -127,7 +130,7 @@ const DoctorComp = ({profileDataMast}) => {
       const handleSchedule = () =>{
             setuserProfileData2('hidden');
             setuserProfileData1('hidden');
-            settableRowClass("text bg-gray-50  overflow-auto h-screen w-full lg:w-3/5 md:mx-auto  md:ml-72 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300  px-10");
+            settableRowClass("text bg-gray-50  overflow-auto h-screen w-full lg:w-2/5 md:mx-auto  lg:ml-72 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300  px-10");
             console.log(clickedUsers);
             console.log(profileDataMast);
       }
@@ -165,17 +168,17 @@ const DoctorComp = ({profileDataMast}) => {
   return (
     <>
       <div className={loader}></div>
-    <section className="text md:right-10 w-full  lg:w-10/12 flex fixed lg:gap-2 dark:bg-slate-900 ">
+    <section className="text lg:right-10 lg:px-10 w-full md:w-4/5 md:right-0 lg:w-10/12 flex fixed lg:gap-2 dark:bg-slate-900 ">
       <div className={tableRowClass}>
-            <div className="text bg-slate-100 dark:bg-slate-800 h-40 px-20  shadow-inner -translate-x-1 md:-translate-x-10  shadow-gray-300 fixed md:w-2/3   lg:w-1/2">
+            {/* <div className="text bg-slate-100 dark:bg-slate-800   h-40 px-20  shadow-inner -translate-x-1 md:-translate-x-10  shadow-gray-300 fixed md:w-2/3   lg:w-2/5 lg:px-80 lg:translate-x-1">
                   <h1 className="text-3xl flex  text-center my-6 font-mono font-bold px-3">
-                        <span className="text ml-2">Doctors</span>
+                        <span className="text-center  lg:-translate-x-20 lg:px-5 ml-2">Doctors</span>
                         </h1>
+                  <h1 className="text-md  text-center mt-10">Click each row to see full details</h1>
+            </div> */}
                   <FaBars className='md:hidden absolute right-8 top-7 mt-1 text-2xl dark:text-white' onClick={handleSideNav}/>
-                  {/* <h1 className="text-md  text-center mt-10">Click each row to see full details</h1> */}
-            </div>
             {/* Table */}
-            <div className="text overflow-x-auto relative mt-48 pb-20">        
+            <div className="text overflow-x-auto relative  mx-auto mt-20 w-full pb-20">        
             <table className="md:text-md border-collapse table-auto border border-slate-200 w-full">
             <thead className='text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
                   <tr>
@@ -187,28 +190,59 @@ const DoctorComp = ({profileDataMast}) => {
 
                   </tr>
             </thead>
-                  {userArr.map((val, ind) => (
+                  {localStorageData?userArr.map((val, ind) => (
                         <>
+                        {
+                        val?._document.data.value.mapValue.fields.email.stringValue === localStorageData?
                         <tbody className=''>
                               <tr key={ind} className='cursor-pointer' onTouchEnd={handleDocProfile} onClick={handleDocProfile} onTouchStart={() =>setclickedUsers(val._document.data.value.mapValue.fields)} onClickCapture={() =>setclickedUsers(val._document.data.value.mapValue.fields)}>
-                                    <td  class="border py-3 pl-5">{ind+1}</td>
-                                    <td  class="border py-3 px-2">Dr. {val._document.data.value.mapValue.fields.firstname.stringValue}</td>
-                                    <td class="border py-3 px-2 hidden lg:flex">{val._document.data.value.mapValue.fields.fieldOfSpecialization.stringValue}</td>
-                                    <td class="border py-1 px-1 dark:hover:bg-slate-500"  title="click to see full details">
-                                          <button className="text rounded w-full h-full  bg-sky-200 hover:bg-blue-700 hover:text-white">See details</button>
+                                    <td  class="border py-3 pl-5  bg-orange-400 animate-pulse">{ind+1}</td>
+                                    <td  class="border py-3 px-2  bg-orange-400 animate-pulse">Dr. {val._document.data.value.mapValue.fields.firstname.stringValue}</td>
+                                    <td class="border py-3 px-2 hidden lg:flex  bg-orange-400 animate-pulse">{val._document.data.value.mapValue.fields.fieldOfSpecialization.stringValue}</td>
+                                    <td class="border  dark:hover:bg-slate-500 bg-orange-400 "  title="click to see full details">
+                                          <button className="text rounded w-full h-full  hover:bg-blue-700  animate-bounce transition-all duration-500 hover:text-white bg-lime-400 py-1 px-1 dark:text-black">See details</button>
                                     </td>
                               </tr>
-                        
-                        </tbody>
+                        </tbody>:
+
+                        <tbody className=''>
+                        <tr key={ind} className='cursor-pointer' onTouchEnd={handleDocProfile} onClick={handleDocProfile} onTouchStart={() =>setclickedUsers(val._document.data.value.mapValue.fields)} onClickCapture={() =>setclickedUsers(val._document.data.value.mapValue.fields)}>
+                              <td  class="border py-3 pl-5">{ind+1}</td>
+                              <td  class="border py-3 px-2">Dr. {val._document.data.value.mapValue.fields.firstname.stringValue}</td>
+                              <td class="border py-3 px-2 hidden lg:flex">{val._document.data.value.mapValue.fields.fieldOfSpecialization.stringValue}</td>
+                              <td class="border py-1 px-1 dark:hover:bg-slate-500"  title="click to see full details">
+                                    <button className="text rounded w-full h-full  bg-sky-200 hover:bg-blue-700 hover:text-white dark:bg-sky-300 dark:text-black">See details</button>
+                              </td>
+                        </tr>
+                  
+                  </tbody>
+
+                        }
 
                               </>
-                              ))}
+                              )):
+                              userArr.map((val, ind) =>(
+                                    <>
+                                     <tbody className=''>
+                                          <tr key={ind} className='cursor-pointer' onTouchEnd={handleDocProfile} onClick={handleDocProfile} onTouchStart={() =>setclickedUsers(val._document.data.value.mapValue.fields)} onClickCapture={() =>setclickedUsers(val._document.data.value.mapValue.fields)}>
+                                                <td  class="border py-3 pl-5">{ind+1}</td>
+                                                <td  class="border py-3 px-2">Dr. {val._document.data.value.mapValue.fields.firstname.stringValue}</td>
+                                                <td class="border py-3 px-2 hidden lg:flex">{val._document.data.value.mapValue.fields.fieldOfSpecialization.stringValue}</td>
+                                                <td class="border py-1 px-1 dark:hover:bg-slate-500"  title="click to see full details">
+                                    <button className="text rounded w-full h-full  bg-sky-200 hover:bg-blue-700 hover:text-white dark:bg-sky-300 dark:text-black">See details</button>
+                              </td>
+                        </tr>
+                  
+                  </tbody>
+                                    </>
+                              ))
+                              }
                   </table>
             </div>
       </div>
       {/* Each user's profile and display field at larg Screen */}
       <div className={userProfileData2}>
-            <div className="text bg-gray-50 h-auto lg:w-1/3 mx-2 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 hidden fixed right-0 lg:grid px-10 py-10 mt-6">
+            <div className="text bg-gray-50 h-auto lg:w-1/3 mx-2 z-40 dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 hidden fixed right-0 lg:grid px-10 py-10 mt-6">
                               <button className="text animate-bounce absolute right-20 text-3xl top-6 " onClick={handleBackArr}><FaArrowLeft/></button>
                               <div className="text mb-8 flex">
                                     <div className="text w-32 h-32 rounded-full bg-gray-200 dark:bg-slate-400">
@@ -259,7 +293,7 @@ const DoctorComp = ({profileDataMast}) => {
       </div>
       {/* Each user's profile and display field at Smaller Screen  */}
       <div className={userProfileData1}>
-            <div className="text bg-gray-100 h-full  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  p-7 lg:hidden w-full ">
+            <div className="text bg-gray-100 h-full  dark:bg-slate-700  dark:text-white shadow-inner shadow-gray-300 fixed right-0  p-7 lg:hidden w-full md:w-4/5 z-40">
                               <button className="text animate-bounce absolute right-20 text-3xl top-6 " onClick={handleBackArr}><FaArrowLeft/></button>
                               <div className="text mb-8 flex w-ful l">
                                     <div className="text border w-24 h-24 rounded-full bg-gray-200 dark:bg-slate-400">
