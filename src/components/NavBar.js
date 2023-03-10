@@ -5,7 +5,8 @@ import img from '../images/zz4.jpg'
 
 
 
-const NavBar = ({profilePics, setsideNav, sideNav, handleChanges, query}) => {
+const NavBar = ({profilePics, handleChanges, query}) => {
+  const [sideNav, setsideNav] = useState("hidden")
     // Funtion for side bar/nav in smaller screen
 
 
